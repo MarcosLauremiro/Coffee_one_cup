@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cycqddaleughw"]
+
+[ext_resource type="Script" uid="uid://bqyg5tcjg17tm" path="res://day_summary.gd" id="1_jh20s"]
+[ext_resource type="PackedScene" uid="uid://cu5mp3tlx2vjr" path="res://scene/text_dialog.tscn" id="1_onfav"]
+[ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="2_f4p67"]
+
+[node name="DaySummary" type="Node2D" unique_id=2143226375]
+script = ExtResource("1_jh20s")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=869077575]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="ButtonNextDay" parent="." unique_id=1570703520 instance=ExtResource("2_f4p67")]
+offset_left = 522.0
+offset_top = 308.0
+offset_right = 610.0
+offset_bottom = 338.0
+
+[node name="TextDialog" parent="." unique_id=1844940489 instance=ExtResource("1_onfav")]
+
+[connection signal="pressed" from="ButtonNextDay" to="." method="_on_button_next_day_pressed"]

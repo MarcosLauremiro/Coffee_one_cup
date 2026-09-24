@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://nq72g085rsbb"]
+
+[ext_resource type="Script" uid="uid://biorimanrnfp5" path="res://script/customer.gd" id="1_4nbbe"]
+[ext_resource type="Texture2D" uid="uid://d0oxdjfq55ekb" path="res://assets/clientes/cliente_1.png" id="1_gmb2f"]
+[ext_resource type="PackedScene" uid="uid://c56lqyikve42q" path="res://scene/ui/dialog_order.tscn" id="3_x1g8d"]
+
+[node name="Customer" type="Node2D" unique_id=1080584164]
+script = ExtResource("1_4nbbe")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1345376134]
+position = Vector2(40, 61)
+scale = Vector2(4.0769234, 4.0769234)
+texture = ExtResource("1_gmb2f")
+
+[node name="DialogOrder" parent="." unique_id=1297578794 instance=ExtResource("3_x1g8d")]
+
+[node name="MarginContainer" parent="DialogOrder" index="0" unique_id=203612999]
+offset_left = 265.0
+offset_top = 34.0
+offset_right = 265.0
+offset_bottom = 34.0
+
+[editable path="DialogOrder"]

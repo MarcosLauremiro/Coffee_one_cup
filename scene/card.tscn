@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://1g4fg881gxrt"]
+
+[ext_resource type="Texture2D" uid="uid://ibrfpp7xabqo" path="res://assets/card_front_comum.png" id="1_gw1lc"]
+[ext_resource type="Script" uid="uid://co6m1kgupv6hy" path="res://script/card.gd" id="1_md2gi"]
+[ext_resource type="Texture2D" uid="uid://cyxqbirrjraao" path="res://assets/card_back_comum.png" id="2_lu544"]
+[ext_resource type="Texture2D" uid="uid://ocoymjg0eqlp" path="res://assets/ingredients_cards/Sprite-0005.png" id="3_irop6"]
+
+[node name="Card" type="Node2D" unique_id=38316445]
+script = ExtResource("1_md2gi")
+
+[node name="Front" type="Node2D" parent="." unique_id=614228263]
+scale = Vector2(2, 2)
+
+[node name="Front" type="Sprite2D" parent="Front" unique_id=1629329637]
+scale = Vector2(2, 2)
+texture = ExtResource("1_gw1lc")
+
+[node name="Face" type="Sprite2D" parent="Front" unique_id=716821139]
+scale = Vector2(2, 2)
+texture = ExtResource("3_irop6")
+
+[node name="Back" type="Node2D" parent="." unique_id=1435495542]
+
+[node name="Back" type="Sprite2D" parent="Back" unique_id=1057256204]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("2_lu544")

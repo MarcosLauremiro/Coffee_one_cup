@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://br1riu1yme06q"]
+
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="1_kf888"]
+[ext_resource type="Texture2D" uid="uid://cjlpehx1yohm" path="res://assets/ui/buttons/button_brown_hover.png" id="1_x45pb"]
+[ext_resource type="Texture2D" uid="uid://dlfbd2mh0cs1l" path="res://assets/ui/buttons/button_brown_normal.png" id="2_kf888"]
+[ext_resource type="Texture2D" uid="uid://cylof6qa4fs5t" path="res://assets/ui/buttons/button_brown_pressed.png" id="3_riadg"]
+[ext_resource type="Script" uid="uid://d081132x6ghcd" path="res://script/button_brown.gd" id="5_6ne6y"]
+[ext_resource type="AudioStream" uid="uid://pl6mchnv3sq5" path="res://assets/sounds/efects/hover.mp3" id="6_ee7x0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf5fn"]
+texture = ExtResource("1_x45pb")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(0, 0, 80, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("2_kf888")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(0, 0, 80, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0u6y"]
+texture = ExtResource("3_riadg")
+texture_margin_left = 6.0
+texture_margin_top = 7.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 80, 32)
+
+[sub_resource type="Theme" id="Theme_g4v7s"]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_kf888")
+Button/styles/hover = SubResource("StyleBoxTexture_yf5fn")
+Button/styles/normal = SubResource("StyleBoxTexture_57qmd")
+Button/styles/pressed = SubResource("StyleBoxTexture_d0u6y")
+
+[node name="ButtonBrown" type="Button" unique_id=1570703520]
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 25.0
+offset_bottom = 16.0
+theme = SubResource("Theme_g4v7s")
+script = ExtResource("5_6ne6y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=890789887]
+stream = ExtResource("6_ee7x0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

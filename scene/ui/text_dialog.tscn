@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cu5mp3tlx2vjr"]
+
+[ext_resource type="Script" uid="uid://dd71j14q644vg" path="res://script/text_dialog.gd" id="1_31ll0"]
+[ext_resource type="Texture2D" uid="uid://fuemmofgh6b" path="res://assets/ui/dialogs/dialog.png" id="2_bhrdx"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="3_bhrdx"]
+
+[node name="TextDialog" type="CanvasLayer" unique_id=1844940489]
+script = ExtResource("1_31ll0")
+
+[node name="DialogBox" type="MarginContainer" parent="." unique_id=1503207057]
+anchors_preset = -1
+anchor_left = 0.46875
+anchor_top = 0.43055555
+anchor_right = 0.53125
+anchor_bottom = 0.5694444
+offset_top = 5.0
+offset_bottom = -4.9999847
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Ballon" type="NinePatchRect" parent="DialogBox" unique_id=1183019026]
+layout_mode = 2
+texture = ExtResource("2_bhrdx")
+region_rect = Rect2(0, 0, 80, 53)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="TextMargin" type="MarginContainer" parent="DialogBox" unique_id=295206771]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 14
+
+[node name="Label" type="Label" parent="DialogBox/TextMargin" unique_id=239434253]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bhrdx")
+theme_override_font_sizes/font_size = 30

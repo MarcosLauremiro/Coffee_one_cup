@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cn18xo14gfd0c"
+
+[deps]
+
+files=["res://language/languague_coffee - Página1.pt_BR.translation", "res://language/languague_coffee - Página1.en.translation", "res://language/languague_coffee - Página1.es.translation"]
+
+source_file="res://language/languague_coffee - Página1.csv"
+dest_files=["res://language/languague_coffee - Página1.pt_BR.translation", "res://language/languague_coffee - Página1.en.translation", "res://language/languague_coffee - Página1.es.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
