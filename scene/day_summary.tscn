@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bqyg5tcjg17tm" path="res://day_summary.gd" id="1_jh20s"]
 [ext_resource type="PackedScene" uid="uid://cu5mp3tlx2vjr" path="res://scene/ui/text_dialog.tscn" id="1_onfav"]
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="2_f4p67"]
-[ext_resource type="Texture2D" uid="uid://cv7flthgrln60" path="res://assets/Sprite-0009.png" id="4_boht4"]
 [ext_resource type="Texture2D" uid="uid://d06q7r00nbd2" path="res://assets/background/note.png" id="3_boht4"]
+[ext_resource type="Texture2D" uid="uid://cv7flthgrln60" path="res://assets/Sprite-0009.png" id="4_boht4"]
 
 [node name="DaySummary" type="Node2D" unique_id=2143226375]
 script = ExtResource("1_jh20s")

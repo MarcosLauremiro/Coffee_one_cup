@@ -172,7 +172,12 @@ theme_override_constants/h_separation = 0
 text = "Credits"
 icon = ExtResource("6_1o50l")
 
-[node name="QuitGame" parent="VBoxContainer" unique_id=1801011958 instance=ExtResource("4_0iwki")]
+[node name="QuitGame" parent="." unique_id=1801011958 instance=ExtResource("4_0iwki")]
+layout_mode = 0
+offset_left = -142.0
+offset_top = 226.0
+offset_right = -8.0
+offset_bottom = 257.0
 layout_mode = 2
 text = "QUI_GAME"
 icon = ExtResource("7_cht4j")
@@ -244,7 +249,7 @@ offset_top = 331.0
 offset_right = 52.0
 offset_bottom = 371.0
 scale = Vector2(0.5, 0.5)
-icon = ExtResource("10_hmxu4")
+icon = ExtResource("4_hmxu4")
 
 [node name="Anima" type="AnimationPlayer" parent="." unique_id=533366291]
 libraries/ = SubResource("AnimationLibrary_ictww")
