@@ -172,12 +172,8 @@ theme_override_constants/h_separation = 0
 text = "Credits"
 icon = ExtResource("6_1o50l")
 
-[node name="QuitGame" parent="." unique_id=1801011958 instance=ExtResource("4_0iwki")]
-layout_mode = 0
-offset_left = -142.0
-offset_top = 226.0
-offset_right = -8.0
-offset_bottom = 257.0
+[node name="QuitGame" parent="VBoxContainer" unique_id=1801011958 instance=ExtResource("4_0iwki")]
+layout_mode = 2
 text = "QUI_GAME"
 icon = ExtResource("7_cht4j")
 
@@ -201,10 +197,10 @@ popup/item_2/id = 2
 [node name="Title" type="Node" parent="." unique_id=1284603118]
 
 [node name="Coffe" type="Label" parent="Title" unique_id=1697139346]
-offset_left = 36.0
-offset_top = 22.0
-offset_right = 233.0
-offset_bottom = 97.0
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 214.0
+offset_bottom = 96.0
 theme_override_colors/font_color = Color(0.6215273, 0.33033302, 0.17222005, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4117647)
 theme_override_colors/font_outline_color = Color(0.82561743, 0.47083896, 0.28860685, 1)
@@ -216,36 +212,39 @@ text = "Coffe"
 horizontal_alignment = 1
 
 [node name="One" type="Label" parent="Title" unique_id=207168987]
-offset_left = 63.0
-offset_top = 60.0
-offset_right = 135.0
-offset_bottom = 108.0
+offset_left = 162.0
+offset_top = 67.0
+offset_right = 216.0
+offset_bottom = 93.0
 theme_override_colors/font_color = Color(0.61960787, 0.32941177, 0.17254902, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4117647)
 theme_override_colors/font_outline_color = Color(0.827451, 0.4745098, 0.2901961, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_sepwh")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 20
 text = "one"
 
 [node name="Cup" type="Label" parent="Title" unique_id=41824925]
-offset_left = 145.0
-offset_top = 62.0
-offset_right = 211.0
-offset_bottom = 106.0
+offset_left = 89.0
+offset_top = 65.0
+offset_right = 147.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0.61960787, 0.32941177, 0.17254902, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4117647)
 theme_override_colors/font_outline_color = Color(0.8, 0.45882353, 0.28235295, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_sepwh")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 32
 text = "cup"
 
-[node name="BackgroundSound" type="AudioStreamPlayer" parent="." unique_id=1827632433]
-stream = ExtResource("6_14wem")
-volume_db = 2.342
-autoplay = true
-parameters/looping = true
+[node name="SoundControler" type="Button" parent="." unique_id=219797838]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 331.0
+offset_right = 52.0
+offset_bottom = 371.0
+scale = Vector2(0.5, 0.5)
+icon = ExtResource("10_hmxu4")
 
 [node name="Anima" type="AnimationPlayer" parent="." unique_id=533366291]
 libraries/ = SubResource("AnimationLibrary_ictww")
@@ -258,3 +257,4 @@ autoplay = &"entered"
 [connection signal="mouse_exited" from="QuitGame" to="." method="_on_quit_game_mouse_exited"]
 [connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="SoundControler" to="." method="_on_sound_controler_pressed"]

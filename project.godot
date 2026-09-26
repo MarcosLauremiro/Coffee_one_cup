@@ -17,8 +17,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-CursorManager="*uid://cngn66qcxpoku"
 TransitionScene="*uid://cjbyaym8w8mwq"
+CursorManager="*uid://cngn66qcxpoku"
+MoneyManager="*uid://cb86eikmx6t0l"
+MusicManager="*uid://du4m1rlefjr8t"
+CardDatabase="*uid://codhorw7chhl0"
 
 [display]
 

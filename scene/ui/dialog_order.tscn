@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jdpsc6uifsee" path="res://assets/ui/dialogs/dialog_order.png" id="2_4sep7"]
 [ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="3_jepyk"]
 
-[node name="DialogOrder" type="CanvasLayer" unique_id=1297578794]
+[node name="DialogOrder" type="Node2D" unique_id=146821317]
 script = ExtResource("1_uluhq")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=203612999]

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b44qkhwffq5l2"]
+
+[ext_resource type="Texture2D" uid="uid://dmq6kae6x3r31" path="res://assets/cards/ingredient_card_back.png" id="1_oq7yk"]
+[ext_resource type="Texture2D" uid="uid://cwmbnu8hghpdm" path="res://assets/cards/ingredient_sugar_card.png" id="2_46vi0"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_a1jul"]
+
+[resource]
+script = ExtResource("3_a1jul")
+id = "sugar"
+title = "Sugar"
+front = ExtResource("2_46vi0")
+back = ExtResource("1_oq7yk")

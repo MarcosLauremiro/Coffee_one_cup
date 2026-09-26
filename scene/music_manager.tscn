@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://du4m1rlefjr8t"]
+
+[ext_resource type="Script" uid="uid://wydn7fbm01j" path="res://script/system/music_manager.gd" id="1_bjrqh"]
+[ext_resource type="AudioStream" uid="uid://c4dlivd40k6t" path="res://assets/sounds/music/420.ogg" id="1_lexfc"]
+
+[node name="MusicManager" type="Node2D" unique_id=841026974]
+script = ExtResource("1_bjrqh")
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="." unique_id=602963822]
+stream = ExtResource("1_lexfc")
+autoplay = true
+parameters/looping = true
+
+[node name="SfxPlayer" type="AudioStreamPlayer" parent="." unique_id=93797275]

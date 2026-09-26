@@ -2,10 +2,8 @@ extends Button
 
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
-
 func _on_mouse_entered() -> void:
-	audio.play()
+	MusicManager.play_sfx("button_hover")
 
-
-func _on_mouse_exited() -> void:
-	pass # Replace with function body.
+func _on_pressed() -> void:
+	MusicManager.play_sfx("button_click")

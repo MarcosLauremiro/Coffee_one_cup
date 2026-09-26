@@ -1,91 +1,178 @@
 [gd_scene format=3 uid="uid://0ln8gse13fb5"]
 
-[ext_resource type="Texture2D" uid="uid://cdfnynrb1ftna" path="res://assets/game_shop.png" id="1_33cqm"]
-[ext_resource type="Script" uid="uid://cfllyrqjhejsi" path="res://script/game.gd" id="1_xwcet"]
-[ext_resource type="Texture2D" uid="uid://dyn4wiq5gsj2g" path="res://assets/game_balcao.png" id="3_xwcet"]
+[ext_resource type="Script" uid="uid://bexm6h735b2qe" path="res://script/table_cards.gd" id="1_yq8tf"]
+[ext_resource type="Texture2D" uid="uid://bdeukp1eqptm" path="res://assets/table_background.png" id="2_ym5sv"]
+[ext_resource type="PackedScene" uid="uid://cqs67wey18jca" path="res://scene/pakage_controler.tscn" id="4_sng2h"]
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="4_xwcet"]
-[ext_resource type="Script" uid="uid://ch66isoh4v11i" path="res://script/system/order_manager.gd" id="5_xlg7c"]
-[ext_resource type="Script" uid="uid://ct3g4sap36wq8" path="res://resources/orders/order_data.gd" id="6_qpk70"]
+[ext_resource type="Texture2D" uid="uid://bs1yg1tmmjnue" path="res://assets/pakage_rare.png" id="6_5g16k"]
+[ext_resource type="Texture2D" uid="uid://bw42mc5bu0qry" path="res://assets/pakage_epic.png" id="7_81276"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_ll5lq"]
-[ext_resource type="Texture2D" uid="uid://dubx5m1w320p7" path="res://assets/ui/game/table.png" id="7_qpk70"]
-[ext_resource type="PackedScene" uid="uid://c7ayglurf4bq" path="res://scene/table_cards.tscn" id="9_17rxn"]
+[ext_resource type="Script" uid="uid://dn3v2vl4ax3lh" path="res://script/open_package.gd" id="8_ve786"]
+[ext_resource type="Script" uid="uid://bq7s02kporep1" path="res://script/package_open_animation.gd" id="9_0lu6w"]
+[ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_i6gbm"]
 
-[sub_resource type="Resource" id="Resource_g4v7s"]
-script = ExtResource("6_qpk70")
-id = "coffee"
-name = "Café"
-ingredients = Array[String](["coffee", "coffee"])
-price = 3
-metadata/_custom_type_script = "uid://ct3g4sap36wq8"
-
-[sub_resource type="Resource" id="Resource_yf5fn"]
-script = ExtResource("6_qpk70")
-id = "strong_coffee"
-name = "Café Forte"
-ingredients = Array[String](["coffee", "coffee", "coffee"])
-price = 5
-metadata/_custom_type_script = "uid://ct3g4sap36wq8"
-
-[sub_resource type="Resource" id="Resource_57qmd"]
-script = ExtResource("6_qpk70")
-id = "boss_coffee"
-name = "Café com Leite"
-ingredients = Array[String](["milk", "coffee", "sugar", "coffee"])
-price = 7
-is_boss = true
-metadata/_custom_type_script = "uid://ct3g4sap36wq8"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpk70"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iysma"]
+resource_local_to_scene = true
 shader = ExtResource("7_ll5lq")
 shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr4ay"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbk3f"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nuyk"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lahp4"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro68g"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sumpj"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn4ar"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3dxw"]
+atlas = ExtResource("10_i6gbm")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr4ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbk3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nuyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lahp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro68g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sumpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn4ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3dxw")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(193, 81)
+size = Vector2(70, 10)
 
-[node name="Game" type="Node2D" unique_id=1823400853]
-script = ExtResource("1_xwcet")
+[node name="TableCards" type="Node2D" unique_id=1793179067]
+script = ExtResource("1_yq8tf")
+metadata/_edit_vertical_guides_ = [618.0]
 
-[node name="shop" type="Sprite2D" parent="." unique_id=927511321]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=8777577]
 position = Vector2(320, 180)
-scale = Vector2(1.9999999, 2)
-texture = ExtResource("1_33cqm")
+scale = Vector2(2.0055556, 2.0055556)
+texture = ExtResource("2_ym5sv")
 
-[node name="Customers" type="Node2D" parent="." unique_id=2068054337]
+[node name="Return" parent="." unique_id=1570703520 instance=ExtResource("4_xwcet")]
+offset_left = 19.0
+offset_top = 37.0
+offset_right = 88.0
+offset_bottom = 68.0
+text = "Voltar"
 
-[node name="Counter" type="Sprite2D" parent="." unique_id=282765829]
-position = Vector2(320, 180)
-scale = Vector2(1.9999999, 2)
-texture = ExtResource("3_xwcet")
+[node name="PakageControlerComum" parent="." unique_id=279074657 instance=ExtResource("4_sng2h")]
+position = Vector2(670, 54)
+price_package = "10"
 
-[node name="StartDay" parent="." unique_id=1570703520 instance=ExtResource("4_xwcet")]
-text = "iniciar dia"
+[node name="Pakage" parent="PakageControlerComum" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_iysma")
 
-[node name="OrderManager" type="Node" parent="." unique_id=586189152]
-script = ExtResource("5_xlg7c")
-orders = Array[ExtResource("6_qpk70")]([SubResource("Resource_g4v7s"), SubResource("Resource_yf5fn"), SubResource("Resource_57qmd")])
-metadata/_custom_type_script = "uid://ch66isoh4v11i"
+[node name="PakageControlerRare" parent="." unique_id=261471021 instance=ExtResource("4_sng2h")]
+position = Vector2(670, 127)
+price_package = "20"
+type = 1
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1913276634]
+[node name="Pakage" parent="PakageControlerRare" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_gr4ay")
+texture = ExtResource("6_5g16k")
 
-[node name="Table" type="Sprite2D" parent="Node2D" unique_id=1431100722]
-material = SubResource("ShaderMaterial_qpk70")
-position = Vector2(320.14532, 234.9375)
-scale = Vector2(1.9970928, 1.9970932)
-texture = ExtResource("7_qpk70")
+[node name="PakageControlerEpic" parent="." unique_id=1188032821 instance=ExtResource("4_sng2h")]
+position = Vector2(671, 199)
+price_package = "30"
+type = 2
 
-[node name="Area2D" type="Area2D" parent="Node2D" unique_id=307545522]
-position = Vector2(320, 232)
+[node name="Pakage" parent="PakageControlerEpic" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_nbk3f")
+texture = ExtResource("7_81276")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=1609963862]
-position = Vector2(-0.5, 1.5)
+[node name="OpenPackage" type="Node2D" parent="." unique_id=290026398]
+visible = false
+script = ExtResource("8_ve786")
+
+[node name="Background" type="ColorRect" parent="OpenPackage" unique_id=1428070647]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0.717)
+
+[node name="PackageComum" type="Node2D" parent="OpenPackage" unique_id=272407165]
+visible = false
+script = ExtResource("9_0lu6w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpenPackage/PackageComum" unique_id=659137986]
+position = Vector2(315, 173)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="OpenPackage/PackageComum" unique_id=847074038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/PackageComum/Area2D" unique_id=1762811780]
+position = Vector2(315, 158)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="TableCards" parent="." unique_id=1793179067 instance=ExtResource("9_17rxn")]
-visible = false
+[node name="CardsContainer" type="Node2D" parent="OpenPackage" unique_id=1047418316]
+position = Vector2(315, 185)
 
-[connection signal="pressed" from="StartDay" to="." method="_on_start_day_pressed"]
-[connection signal="input_event" from="Node2D/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="input_event" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_exited"]
+
+[editable path="PakageControlerComum"]
+[editable path="PakageControlerRare"]
+[editable path="PakageControlerEpic"]

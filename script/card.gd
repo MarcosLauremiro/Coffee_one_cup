@@ -1,16 +1,19 @@
+class_name Card
 extends Node2D
 
-enum CardType {
-	INGREDIENT,
-	RECIPE,
-	EVENT
-}
+@onready var front: Sprite2D = $Front/Front
+@onready var back: Sprite2D = $Back/Back
 
-var type: CardType
-var data: Dictionary
+var data: CardData
 
-func setup(card_type: CardType, card_data: Dictionary) -> void:
-	type = card_type
+func setup(card_data: CardData) -> void:
 	data = card_data
-	
-	
+	render()
+
+
+func render() -> void:
+	if data == null:
+		return
+
+	front.texture = data.front
+	back.texture = data.back

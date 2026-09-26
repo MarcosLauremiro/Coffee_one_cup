@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://idhgh4ko8bi8"]
+
+[ext_resource type="Texture2D" uid="uid://dmq6kae6x3r31" path="res://assets/cards/ingredient_card_back.png" id="1_d28x0"]
+[ext_resource type="Texture2D" uid="uid://gn34xfadeckr" path="res://assets/cards/ingredient_coffe_card.png" id="2_m72ei"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_xp2u0"]
+
+[resource]
+script = ExtResource("3_xp2u0")
+id = "coffee"
+title = "Coffee"
+front = ExtResource("2_m72ei")
+back = ExtResource("1_d28x0")

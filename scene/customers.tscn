@@ -13,6 +13,7 @@ scale = Vector2(4.0769234, 4.0769234)
 texture = ExtResource("1_gmb2f")
 
 [node name="DialogOrder" parent="." unique_id=1297578794 instance=ExtResource("3_x1g8d")]
+position = Vector2(-259, -89)
 
 [node name="MarginContainer" parent="DialogOrder" index="0" unique_id=203612999]
 offset_left = 265.0

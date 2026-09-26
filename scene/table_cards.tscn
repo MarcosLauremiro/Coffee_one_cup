@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bdeukp1eqptm" path="res://assets/table_background.png" id="1_i15db"]
 [ext_resource type="Script" uid="uid://bexm6h735b2qe" path="res://script/table_cards.gd" id="1_o4wco"]
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="3_h7obs"]
-[ext_resource type="Texture2D" uid="uid://bcdjwntg7udwo" path="res://assets/ui/icons/arrow.png" id="4_i27hv"]
 [ext_resource type="PackedScene" uid="uid://cqs67wey18jca" path="res://scene/pakage_controler.tscn" id="5_i27hv"]
 [ext_resource type="Texture2D" uid="uid://bw42mc5bu0qry" path="res://assets/pakage_epic.png" id="6_x8bil"]
 [ext_resource type="Texture2D" uid="uid://bs1yg1tmmjnue" path="res://assets/pakage_rare.png" id="7_aifke"]
@@ -110,9 +109,11 @@ scale = Vector2(2.0055556, 2.0055556)
 texture = ExtResource("1_i15db")
 
 [node name="Return" parent="." unique_id=1570703520 instance=ExtResource("3_h7obs")]
-offset_right = 45.0
-offset_bottom = 39.0
-icon = ExtResource("4_i27hv")
+offset_left = 19.0
+offset_top = 37.0
+offset_right = 88.0
+offset_bottom = 68.0
+text = "Voltar"
 
 [node name="PakageControlerComum" parent="." unique_id=279074657 instance=ExtResource("5_i27hv")]
 position = Vector2(670, 54)
@@ -163,6 +164,9 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/PackageComum/Area2D" unique_id=1762811780]
 position = Vector2(315, 158)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CardsContainer" type="Node2D" parent="OpenPackage" unique_id=1047418316]
+position = Vector2(315, 185)
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="input_event" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_input_event"]

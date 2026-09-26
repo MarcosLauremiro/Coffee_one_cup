@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 @onready var text: Label = $MarginContainer/MarginContainer/HBoxContainer/Text
 @onready var destaque: Label = $MarginContainer/MarginContainer/HBoxContainer/Destaque

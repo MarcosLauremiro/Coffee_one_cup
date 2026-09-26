@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://w4q2xvwnpim7"]
+
+[ext_resource type="Texture2D" uid="uid://bauxdrdd0i1gy" path="res://assets/background/menu_background.png" id="1_e5g8k"]
+[ext_resource type="Script" uid="uid://ddg3qudx2t4uj" path="res://script/menu.gd" id="1_xs5te"]
+[ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="2_8hxod"]
+[ext_resource type="Script" uid="uid://bgfvpcv0vshm4" path="res://script/space_menu.gd" id="4_vi6sp"]
+[ext_resource type="Texture2D" uid="uid://ddoc5kewqtx8t" path="res://assets/ui/game/menu/revenue_normal.png" id="5_1qlln"]
+[ext_resource type="PackedScene" uid="uid://c5mjty80extfs" path="res://scene/recipe_selector.tscn" id="6_vi6sp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(72, 96)
+
+[node name="Menu" type="Node2D" unique_id=1722712719]
+script = ExtResource("1_xs5te")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1383851610]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("1_e5g8k")
+
+[node name="ButtonBrown" parent="." unique_id=1570703520 instance=ExtResource("2_8hxod")]
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 85.0
+offset_bottom = 45.0
+text = "Voltar"
+
+[node name="Itens" type="Node2D" parent="." unique_id=1115098939]
+
+[node name="SpaceMenu" type="Area2D" parent="Itens" unique_id=928984676]
+script = ExtResource("4_vi6sp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu" unique_id=1006543971]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu" unique_id=892994497]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2060963266]
+visible = false
+
+[node name="RecipeSelector" parent="CanvasLayer" unique_id=1099371872 instance=ExtResource("6_vi6sp")]
+
+[node name="ButtonBrown" parent="CanvasLayer/RecipeSelector" index="1" unique_id=1570703520]
+offset_left = 31.0
+offset_top = 30.0
+offset_right = 100.0
+offset_bottom = 60.0
+
+[connection signal="input_event" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_exited"]
+
+[editable path="CanvasLayer/RecipeSelector"]

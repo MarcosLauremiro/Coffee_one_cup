@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://c5mjty80extfs"]
+
+[ext_resource type="Script" uid="uid://bexm6h735b2qe" path="res://script/table_cards.gd" id="1_0rqbc"]
+[ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="1_02osr"]
+[ext_resource type="Texture2D" uid="uid://bdeukp1eqptm" path="res://assets/table_background.png" id="2_ygaw3"]
+[ext_resource type="PackedScene" uid="uid://cqs67wey18jca" path="res://scene/pakage_controler.tscn" id="4_eoelv"]
+[ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="5_nkh48"]
+[ext_resource type="Texture2D" uid="uid://bs1yg1tmmjnue" path="res://assets/pakage_rare.png" id="6_clqdm"]
+[ext_resource type="Texture2D" uid="uid://bw42mc5bu0qry" path="res://assets/pakage_epic.png" id="7_dboyi"]
+[ext_resource type="Script" uid="uid://dn3v2vl4ax3lh" path="res://script/open_package.gd" id="8_u7gcm"]
+[ext_resource type="Script" uid="uid://bq7s02kporep1" path="res://script/package_open_animation.gd" id="9_lof34"]
+[ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_c5xu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iysma"]
+resource_local_to_scene = true
+shader = ExtResource("5_nkh48")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
+resource_local_to_scene = true
+shader = ExtResource("5_nkh48")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
+resource_local_to_scene = true
+shader = ExtResource("5_nkh48")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr4ay"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbk3f"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nuyk"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lahp4"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro68g"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sumpj"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn4ar"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3dxw"]
+atlas = ExtResource("10_c5xu3")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr4ay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbk3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nuyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lahp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro68g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sumpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn4ar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3dxw")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(70, 10)
+
+[node name="TableCards" type="Node2D" unique_id=1793179067]
+script = ExtResource("1_0rqbc")
+metadata/_edit_vertical_guides_ = [618.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=8777577]
+position = Vector2(320, 180)
+scale = Vector2(2.0055556, 2.0055556)
+texture = ExtResource("2_ygaw3")
+
+[node name="Return" parent="." unique_id=1570703520 instance=ExtResource("1_02osr")]
+offset_left = 19.0
+offset_top = 37.0
+offset_right = 88.0
+offset_bottom = 68.0
+text = "Voltar"
+
+[node name="PakageControlerComum" parent="." unique_id=279074657 instance=ExtResource("4_eoelv")]
+position = Vector2(670, 54)
+price_package = "10"
+
+[node name="Pakage" parent="PakageControlerComum" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_iysma")
+
+[node name="PakageControlerRare" parent="." unique_id=261471021 instance=ExtResource("4_eoelv")]
+position = Vector2(670, 127)
+price_package = "20"
+type = 1
+
+[node name="Pakage" parent="PakageControlerRare" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_gr4ay")
+texture = ExtResource("6_clqdm")
+
+[node name="PakageControlerEpic" parent="." unique_id=1188032821 instance=ExtResource("4_eoelv")]
+position = Vector2(671, 199)
+price_package = "30"
+type = 2
+
+[node name="Pakage" parent="PakageControlerEpic" index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_nbk3f")
+texture = ExtResource("7_dboyi")
+
+[node name="OpenPackage" type="Node2D" parent="." unique_id=290026398]
+visible = false
+script = ExtResource("8_u7gcm")
+
+[node name="Background" type="ColorRect" parent="OpenPackage" unique_id=1428070647]
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 1
+color = Color(0, 0, 0, 0.717)
+
+[node name="PackageComum" type="Node2D" parent="OpenPackage" unique_id=272407165]
+visible = false
+script = ExtResource("9_lof34")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpenPackage/PackageComum" unique_id=659137986]
+position = Vector2(315, 173)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="OpenPackage/PackageComum" unique_id=847074038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/PackageComum/Area2D" unique_id=1762811780]
+position = Vector2(315, 158)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="CardsContainer" type="Node2D" parent="OpenPackage" unique_id=1047418316]
+position = Vector2(315, 185)
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="input_event" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_exited"]
+
+[editable path="PakageControlerComum"]
+[editable path="PakageControlerRare"]
+[editable path="PakageControlerEpic"]

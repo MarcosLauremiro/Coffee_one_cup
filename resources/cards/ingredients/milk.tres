@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cfx8618po2euw"]
+
+[ext_resource type="Texture2D" uid="uid://dmq6kae6x3r31" path="res://assets/cards/ingredient_card_back.png" id="1_3qr2g"]
+[ext_resource type="Texture2D" uid="uid://c63wlsrbv0tvn" path="res://assets/cards/ingredient_milk_card.png" id="2_xioxn"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_7gre5"]
+
+[resource]
+script = ExtResource("3_7gre5")
+id = "milk"
+title = "Milk"
+front = ExtResource("2_xioxn")
+back = ExtResource("1_3qr2g")

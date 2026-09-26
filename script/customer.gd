@@ -1,7 +1,7 @@
 class_name Customer
 extends Node2D
 
-@onready var dialog_order: CanvasLayer = $DialogOrder
+@onready var dialog_order: Node2D = $DialogOrder
 
 enum State { ENTERING, WAITING_ORDER, WAITING_FOOD, EATING, LEAVING }
 
@@ -10,7 +10,7 @@ var status = State.ENTERING
 var order:OrderData = null
 
 func _ready() -> void:
-	dialog_order.visible = false
+	dialog_order.hide()
 
 func update_status() -> void:
 	match status:
