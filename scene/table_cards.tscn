@@ -10,13 +10,7 @@
 [ext_resource type="Script" uid="uid://dn3v2vl4ax3lh" path="res://script/open_package.gd" id="9_aifke"]
 [ext_resource type="Script" uid="uid://bq7s02kporep1" path="res://script/package_open_animation.gd" id="10_gr4ay"]
 [ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_iysma"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iysma"]
-resource_local_to_scene = true
-shader = ExtResource("7_x8bil")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
+[ext_resource type="Texture2D" uid="uid://dyvkwkurmd1jv" path="res://assets/package_rare_pening_Sheet.png" id="11_gr4ay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
 resource_local_to_scene = true
@@ -26,6 +20,13 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
+resource_local_to_scene = true
+shader = ExtResource("7_x8bil")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nuyk"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
 shader_parameter/outline_enabled = false
@@ -96,6 +97,70 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_36s0m"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24sbt"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m538n"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aook"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ur5"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s5gu"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kkpo"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhva6"]
+atlas = ExtResource("11_gr4ay")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36s0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24sbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m538n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aook")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ur5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s5gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kkpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhva6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(70, 10)
 
@@ -120,7 +185,7 @@ position = Vector2(670, 54)
 price_package = "10"
 
 [node name="Pakage" parent="PakageControlerComum" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_iysma")
+material = SubResource("ShaderMaterial_gr4ay")
 
 [node name="PakageControlerRare" parent="." unique_id=261471021 instance=ExtResource("5_i27hv")]
 position = Vector2(670, 127)
@@ -128,7 +193,7 @@ price_package = "20"
 type = 1
 
 [node name="Pakage" parent="PakageControlerRare" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_gr4ay")
+material = SubResource("ShaderMaterial_nbk3f")
 texture = ExtResource("7_aifke")
 
 [node name="PakageControlerEpic" parent="." unique_id=1188032821 instance=ExtResource("5_i27hv")]
@@ -137,7 +202,7 @@ price_package = "30"
 type = 2
 
 [node name="Pakage" parent="PakageControlerEpic" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_nbk3f")
+material = SubResource("ShaderMaterial_3nuyk")
 texture = ExtResource("6_x8bil")
 
 [node name="OpenPackage" type="Node2D" parent="." unique_id=290026398]
@@ -150,18 +215,21 @@ offset_bottom = 360.0
 mouse_filter = 1
 color = Color(0, 0, 0, 0.717)
 
-[node name="PackageComum" type="Node2D" parent="OpenPackage" unique_id=272407165]
+[node name="Package" type="Node2D" parent="OpenPackage" unique_id=272407165]
 visible = false
 script = ExtResource("10_gr4ay")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpenPackage/PackageComum" unique_id=659137986]
+[node name="AnimatedComum" type="AnimatedSprite2D" parent="OpenPackage/Package" unique_id=659137986]
 position = Vector2(315, 173)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
-[node name="Area2D" type="Area2D" parent="OpenPackage/PackageComum" unique_id=847074038]
+[node name="AnimatedRare" type="AnimatedSprite2D" parent="OpenPackage/Package" unique_id=906970495]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/PackageComum/Area2D" unique_id=1762811780]
+[node name="Area2D" type="Area2D" parent="OpenPackage/Package" unique_id=847074038]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/Package/Area2D" unique_id=1762811780]
 position = Vector2(315, 158)
 shape = SubResource("RectangleShape2D_g4v7s")
 
@@ -169,9 +237,9 @@ shape = SubResource("RectangleShape2D_g4v7s")
 position = Vector2(315, 185)
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
-[connection signal="input_event" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_mouse_exited"]
 
 [editable path="PakageControlerComum"]
 [editable path="PakageControlerRare"]

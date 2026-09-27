@@ -3,7 +3,7 @@ extends Node2D
 @export var customer_scene = preload("res://scene/customers.tscn")
 @onready var order_manager: OrderManager = $OrderManager
 @onready var start_day: Button = $PreGame/StartDay
-@onready var table: Sprite2D = $Node2D/Table
+@onready var table: Sprite2D = $Area2D/Table
 @onready var table_cards: Node2D = $TableCards
 @onready var hud: CanvasLayer = $Hud
 @onready var pre_game: Node2D = $PreGame

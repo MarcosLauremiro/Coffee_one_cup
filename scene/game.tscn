@@ -1,178 +1,161 @@
 [gd_scene format=3 uid="uid://0ln8gse13fb5"]
 
-[ext_resource type="Script" uid="uid://bexm6h735b2qe" path="res://script/table_cards.gd" id="1_yq8tf"]
-[ext_resource type="Texture2D" uid="uid://bdeukp1eqptm" path="res://assets/table_background.png" id="2_ym5sv"]
-[ext_resource type="PackedScene" uid="uid://cqs67wey18jca" path="res://scene/pakage_controler.tscn" id="4_sng2h"]
+[ext_resource type="Script" uid="uid://cfllyrqjhejsi" path="res://script/game.gd" id="1_33cqm"]
+[ext_resource type="Texture2D" uid="uid://cdfnynrb1ftna" path="res://assets/game_shop.png" id="2_xwcet"]
+[ext_resource type="Texture2D" uid="uid://dyn4wiq5gsj2g" path="res://assets/game_balcao.png" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="4_xwcet"]
-[ext_resource type="Texture2D" uid="uid://bs1yg1tmmjnue" path="res://assets/pakage_rare.png" id="6_5g16k"]
-[ext_resource type="Texture2D" uid="uid://bw42mc5bu0qry" path="res://assets/pakage_epic.png" id="7_81276"]
+[ext_resource type="Texture2D" uid="uid://ck0vcpuqpirjd" path="res://assets/ui/buttons/button_menu_hover.png" id="4_ym5sv"]
+[ext_resource type="PackedScene" uid="uid://c7ayglurf4bq" path="res://scene/table_cards.tscn" id="5_qpk70"]
+[ext_resource type="Texture2D" uid="uid://bs35bscwp1dw7" path="res://assets/ui/buttons/button_menu_nomal.png" id="5_sng2h"]
+[ext_resource type="Texture2D" uid="uid://b53740tbj7di3" path="res://assets/ui/buttons/button_menu_pressed.png" id="6_5g16k"]
+[ext_resource type="PackedScene" uid="uid://nh8kt600sv3d" path="res://scene/hud.tscn" id="6_ll5lq"]
+[ext_resource type="Texture2D" uid="uid://dubx5m1w320p7" path="res://assets/ui/game/table.png" id="7_17rxn"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_ll5lq"]
-[ext_resource type="Script" uid="uid://dn3v2vl4ax3lh" path="res://script/open_package.gd" id="8_ve786"]
-[ext_resource type="Script" uid="uid://bq7s02kporep1" path="res://script/package_open_animation.gd" id="9_0lu6w"]
-[ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_i6gbm"]
+[ext_resource type="Shader" uid="uid://bbevk7x66orit" path="res://shader/background_blur.gdshader" id="12_sng2h"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iysma"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll5lq"]
 resource_local_to_scene = true
 shader = ExtResource("7_ll5lq")
 shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17rxn"]
 resource_local_to_scene = true
 shader = ExtResource("7_ll5lq")
 shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq8tf"]
 resource_local_to_scene = true
 shader = ExtResource("7_ll5lq")
 shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gr4ay"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nbk3f"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3nuyk"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lahp4"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(192, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ro68g"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(256, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sumpj"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(320, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xn4ar"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(384, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n3dxw"]
-atlas = ExtResource("10_i6gbm")
-region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gr4ay")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nbk3f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3nuyk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lahp4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ro68g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sumpj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xn4ar")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3dxw")
-}],
-"loop": 0,
-"name": &"default",
-"speed": 15.0
-}]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ym5sv"]
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(70, 10)
+size = Vector2(199.5, 86)
 
-[node name="TableCards" type="Node2D" unique_id=1793179067]
-script = ExtResource("1_yq8tf")
-metadata/_edit_vertical_guides_ = [618.0]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("12_sng2h")
+shader_parameter/blur_size = 4.0
+shader_parameter/direction = Vector2(1, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=8777577]
-position = Vector2(320, 180)
-scale = Vector2(2.0055556, 2.0055556)
-texture = ExtResource("2_ym5sv")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57qmd"]
+texture = ExtResource("4_ym5sv")
 
-[node name="Return" parent="." unique_id=1570703520 instance=ExtResource("4_xwcet")]
-offset_left = 19.0
-offset_top = 37.0
-offset_right = 88.0
-offset_bottom = 68.0
-text = "Voltar"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0u6y"]
+texture = ExtResource("5_sng2h")
+texture_margin_left = 25.0
+texture_margin_top = 11.0
+texture_margin_right = 6.0
+texture_margin_bottom = 10.0
 
-[node name="PakageControlerComum" parent="." unique_id=279074657 instance=ExtResource("4_sng2h")]
-position = Vector2(670, 54)
-price_package = "10"
-
-[node name="Pakage" parent="PakageControlerComum" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_iysma")
-
-[node name="PakageControlerRare" parent="." unique_id=261471021 instance=ExtResource("4_sng2h")]
-position = Vector2(670, 127)
-price_package = "20"
-type = 1
-
-[node name="Pakage" parent="PakageControlerRare" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_gr4ay")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gngh"]
 texture = ExtResource("6_5g16k")
 
-[node name="PakageControlerEpic" parent="." unique_id=1188032821 instance=ExtResource("4_sng2h")]
-position = Vector2(671, 199)
-price_package = "30"
-type = 2
+[sub_resource type="Theme" id="Theme_g4v7s"]
+Button/styles/hover = SubResource("StyleBoxTexture_57qmd")
+Button/styles/normal = SubResource("StyleBoxTexture_d0u6y")
+Button/styles/pressed = SubResource("StyleBoxTexture_3gngh")
 
-[node name="Pakage" parent="PakageControlerEpic" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_nbk3f")
-texture = ExtResource("7_81276")
+[node name="Game" type="Node2D" unique_id=1793179067]
+script = ExtResource("1_33cqm")
+metadata/_edit_vertical_guides_ = [618.0, 320.0]
+metadata/_edit_horizontal_guides_ = [180.0]
 
-[node name="OpenPackage" type="Node2D" parent="." unique_id=290026398]
-visible = false
-script = ExtResource("8_ve786")
-
-[node name="Background" type="ColorRect" parent="OpenPackage" unique_id=1428070647]
-offset_right = 640.0
-offset_bottom = 360.0
-mouse_filter = 1
-color = Color(0, 0, 0, 0.717)
-
-[node name="PackageComum" type="Node2D" parent="OpenPackage" unique_id=272407165]
-visible = false
-script = ExtResource("9_0lu6w")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="OpenPackage/PackageComum" unique_id=659137986]
-position = Vector2(315, 173)
+[node name="Background" type="Sprite2D" parent="." unique_id=306933040]
+position = Vector2(320, 180)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_g4v7s")
+texture = ExtResource("2_xwcet")
 
-[node name="Area2D" type="Area2D" parent="OpenPackage/PackageComum" unique_id=847074038]
+[node name="Customers" type="Node2D" parent="." unique_id=491406571]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenPackage/PackageComum/Area2D" unique_id=1762811780]
-position = Vector2(315, 158)
+[node name="TableCards" parent="." unique_id=160747537 instance=ExtResource("5_qpk70")]
+visible = false
+
+[node name="Pakage" parent="TableCards/PakageControlerComum" parent_id_path=PackedInt32Array(160747537, 279074657) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_ll5lq")
+
+[node name="Pakage" parent="TableCards/PakageControlerRare" parent_id_path=PackedInt32Array(160747537, 261471021) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_17rxn")
+
+[node name="Pakage" parent="TableCards/PakageControlerEpic" parent_id_path=PackedInt32Array(160747537, 1188032821) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_yq8tf")
+
+[node name="Hud" parent="." unique_id=1821041077 instance=ExtResource("6_ll5lq")]
+visible = false
+
+[node name="Counter" type="Sprite2D" parent="." unique_id=492040448]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("4_p1ry8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=264991345]
+
+[node name="Table" type="Sprite2D" parent="Area2D" unique_id=2011848125]
+material = SubResource("ShaderMaterial_ym5sv")
+position = Vector2(320, 235)
+scale = Vector2(2, 2)
+texture = ExtResource("7_17rxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1296249290]
+position = Vector2(320.25, 235)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="CardsContainer" type="Node2D" parent="OpenPackage" unique_id=1047418316]
-position = Vector2(315, 185)
+[node name="PreGame" type="Node2D" parent="." unique_id=62803807]
+position = Vector2(292, 137)
 
-[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
-[connection signal="input_event" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="OpenPackage/PackageComum/Area2D" to="OpenPackage/PackageComum" method="_on_area_2d_mouse_exited"]
+[node name="ColorRect" type="ColorRect" parent="PreGame" unique_id=637302331]
+material = SubResource("ShaderMaterial_g4v7s")
+offset_left = -292.0
+offset_top = -136.0
+offset_right = 348.0
+offset_bottom = 223.0
+color = Color(0, 0, 0, 0.44000003)
 
-[editable path="PakageControlerComum"]
-[editable path="PakageControlerRare"]
-[editable path="PakageControlerEpic"]
+[node name="StartDay" parent="PreGame" unique_id=1570703520 instance=ExtResource("4_xwcet")]
+custom_minimum_size = Vector2(120, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -22.0
+offset_top = 64.0
+offset_right = 79.0
+offset_bottom = 94.0
+grow_horizontal = 2
+text = "STR_DAY"
+
+[node name="GoMenu" type="Button" parent="PreGame" unique_id=1258945417]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 44.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_g4v7s")
+
+[connection signal="pressed" from="TableCards/Return" to="." method="_on_return_pressed"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="PreGame/StartDay" to="." method="_on_start_day_pressed"]
+[connection signal="pressed" from="PreGame/GoMenu" to="." method="_on_go_menu_pressed"]
+
+[editable path="TableCards"]
+[editable path="TableCards/PakageControlerComum"]
+[editable path="TableCards/PakageControlerRare"]
+[editable path="TableCards/PakageControlerEpic"]

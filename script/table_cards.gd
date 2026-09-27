@@ -16,10 +16,10 @@ func _on_package_clicked(card_type: Package.RarityType) -> void:
 			open_package.setup(card_type)
 
 		pakage_controler_rare.RarityType.RARE:
-			print("Abriu pacote raro")
+			open_package.setup(card_type)
 
 		pakage_controler_epic.RarityType.EPIC:
-			print("Abriu pacote épico")
+			open_package.setup(card_type)
 
 func _on_return_pressed() -> void:
 	hide()

@@ -6,9 +6,31 @@
 [ext_resource type="Script" uid="uid://bgfvpcv0vshm4" path="res://script/space_menu.gd" id="4_vi6sp"]
 [ext_resource type="Texture2D" uid="uid://ddoc5kewqtx8t" path="res://assets/ui/game/menu/revenue_normal.png" id="5_1qlln"]
 [ext_resource type="PackedScene" uid="uid://c5mjty80extfs" path="res://scene/recipe_selector.tscn" id="6_vi6sp"]
+[ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_1qlln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(72, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wd6lm"]
+resource_local_to_scene = true
+shader = ExtResource("7_1qlln")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuiae"]
+resource_local_to_scene = true
+shader = ExtResource("7_1qlln")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5j1"]
+resource_local_to_scene = true
+shader = ExtResource("7_1qlln")
+shader_parameter/outline_enabled = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
 
 [node name="Menu" type="Node2D" unique_id=1722712719]
 script = ExtResource("1_xs5te")
@@ -39,19 +61,31 @@ texture = ExtResource("5_1qlln")
 position = Vector2(240, 120)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2060963266]
+[node name="Revenues" type="CanvasLayer" parent="." unique_id=2060963266]
 visible = false
 
-[node name="RecipeSelector" parent="CanvasLayer" unique_id=1099371872 instance=ExtResource("6_vi6sp")]
+[node name="RecipeSelector" parent="Revenues" unique_id=1099371872 instance=ExtResource("6_vi6sp")]
 
-[node name="ButtonBrown" parent="CanvasLayer/RecipeSelector" index="1" unique_id=1570703520]
+[node name="Return" parent="Revenues/RecipeSelector" index="1" unique_id=1570703520]
 offset_left = 31.0
 offset_top = 30.0
 offset_right = 100.0
 offset_bottom = 60.0
 
+[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerComum" parent_id_path=PackedInt32Array(1099371872, 279074657) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_wd6lm")
+
+[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerRare" parent_id_path=PackedInt32Array(1099371872, 261471021) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_nuiae")
+
+[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerEpic" parent_id_path=PackedInt32Array(1099371872, 1188032821) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_pb5j1")
+
 [connection signal="input_event" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_input_event"]
 [connection signal="mouse_entered" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_exited"]
 
-[editable path="CanvasLayer/RecipeSelector"]
+[editable path="Revenues/RecipeSelector"]
+[editable path="Revenues/RecipeSelector/PakageControlerComum"]
+[editable path="Revenues/RecipeSelector/PakageControlerRare"]
+[editable path="Revenues/RecipeSelector/PakageControlerEpic"]

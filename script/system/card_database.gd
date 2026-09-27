@@ -13,8 +13,6 @@ func load_cards() -> void:
 	cards.clear()
 	_scan_directory(CARDS_PATH)
 
-	print("Cartas carregadas: ", cards.size())
-
 
 func _scan_directory(path: String) -> void:
 	var dir := DirAccess.open(path)
@@ -46,7 +44,6 @@ func _scan_directory(path: String) -> void:
 		file_name = dir.get_next()
 
 	dir.list_dir_end()
-
 
 func get_cards_by_rarity(rarity: String) -> Array[CardData]:
 	var result: Array[CardData] = []
