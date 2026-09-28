@@ -1,5 +1,7 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print(RecipeDatabase.get_recipe_unlocked())
+
+func _on_start_day_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/game.tscn")

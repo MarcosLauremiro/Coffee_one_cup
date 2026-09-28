@@ -6,7 +6,13 @@ extends Control
 var button_icon_sound_active: Texture2D = load("res://assets/ui/buttons/button_sound_active.png")
 var button_icon_sound_disabled: Texture2D = load("res://assets/ui/buttons/button_sound_disabled.png")
 
+@onready var pre_game: Control = $PreGame
+@onready var start_game: Button = $StartGame
+
 func _ready() -> void:
+	if SaveManager.has_save():
+		start_game.text = tr("LOAD")
+	start_game.text = tr("STR_GAME")
 	option_button.select(0)
 	TranslationServer.set_locale("en")
 
@@ -19,7 +25,16 @@ func _on_option_button_item_selected(index: int) -> void:
 		TranslationServer.set_locale("es")
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/game.tscn")
+	on_start_game()
+
+func on_start_game() -> void:
+	pre_game.show()
+	if SaveManager.has_save():
+		print("false")
+		pre_game.setup(false)
+	else:
+		print("true")
+		pre_game.setup(true)
 
 func _on_quit_game_pressed() -> void:
 	get_tree().quit()

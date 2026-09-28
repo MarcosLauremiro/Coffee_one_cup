@@ -6,46 +6,25 @@
 [ext_resource type="Script" uid="uid://bgfvpcv0vshm4" path="res://script/space_menu.gd" id="4_vi6sp"]
 [ext_resource type="Texture2D" uid="uid://ddoc5kewqtx8t" path="res://assets/ui/game/menu/revenue_normal.png" id="5_1qlln"]
 [ext_resource type="PackedScene" uid="uid://c5mjty80extfs" path="res://scene/recipe_selector.tscn" id="6_vi6sp"]
-[ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_1qlln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(72, 96)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wd6lm"]
-resource_local_to_scene = true
-shader = ExtResource("7_1qlln")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuiae"]
-resource_local_to_scene = true
-shader = ExtResource("7_1qlln")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pb5j1"]
-resource_local_to_scene = true
-shader = ExtResource("7_1qlln")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
 [node name="Menu" type="Node2D" unique_id=1722712719]
 script = ExtResource("1_xs5te")
+metadata/_edit_horizontal_guides_ = [320.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1383851610]
 position = Vector2(320, 180)
 scale = Vector2(2, 2)
 texture = ExtResource("1_e5g8k")
 
-[node name="ButtonBrown" parent="." unique_id=1570703520 instance=ExtResource("2_8hxod")]
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 85.0
-offset_bottom = 45.0
-text = "Voltar"
+[node name="StartDay" parent="." unique_id=1570703520 instance=ExtResource("2_8hxod")]
+offset_left = 501.0
+offset_top = 290.0
+offset_right = 591.0
+offset_bottom = 320.0
+text = "STR_DAY"
 
 [node name="Itens" type="Node2D" parent="." unique_id=1115098939]
 
@@ -55,9 +34,78 @@ script = ExtResource("4_vi6sp")
 [node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu" unique_id=1006543971]
 position = Vector2(240, 120)
 scale = Vector2(2, 2)
-texture = ExtResource("5_1qlln")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu" unique_id=892994497]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceMenu1" type="Area2D" parent="Itens" unique_id=187836433]
+position = Vector2(80, 0)
+script = ExtResource("4_vi6sp")
+slot = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu1" unique_id=446202495]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu1" unique_id=1420513716]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceMenu2" type="Area2D" parent="Itens" unique_id=2074131627]
+position = Vector2(160, 0)
+script = ExtResource("4_vi6sp")
+slot = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu2" unique_id=1961821723]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu2" unique_id=615117607]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceMenu3" type="Area2D" parent="Itens" unique_id=850559298]
+position = Vector2(0, 120)
+script = ExtResource("4_vi6sp")
+slot = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu3" unique_id=609562783]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu3" unique_id=110335433]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceMenu4" type="Area2D" parent="Itens" unique_id=1085652702]
+position = Vector2(80, 120)
+script = ExtResource("4_vi6sp")
+slot = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu4" unique_id=163313071]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu4" unique_id=1768344953]
+position = Vector2(240, 120)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpaceMenu5" type="Area2D" parent="Itens" unique_id=343239889]
+position = Vector2(160, 120)
+script = ExtResource("4_vi6sp")
+slot = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Itens/SpaceMenu5" unique_id=1907046269]
+position = Vector2(240, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1qlln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Itens/SpaceMenu5" unique_id=235940364]
 position = Vector2(240, 120)
 shape = SubResource("RectangleShape2D_g4v7s")
 
@@ -66,26 +114,36 @@ visible = false
 
 [node name="RecipeSelector" parent="Revenues" unique_id=1099371872 instance=ExtResource("6_vi6sp")]
 
+[node name="Panel" parent="Revenues/RecipeSelector" index="0" unique_id=1086199635]
+material = null
+
+[node name="VBoxContainer" parent="Revenues/RecipeSelector/Panel/MarginContainer/ScrollContainer" parent_id_path=PackedInt32Array(1099371872, 433592844) index="0" unique_id=1076790561]
+accessibility_region = true
+
 [node name="Return" parent="Revenues/RecipeSelector" index="1" unique_id=1570703520]
 offset_left = 31.0
 offset_top = 30.0
 offset_right = 100.0
 offset_bottom = 60.0
 
-[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerComum" parent_id_path=PackedInt32Array(1099371872, 279074657) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_wd6lm")
-
-[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerRare" parent_id_path=PackedInt32Array(1099371872, 261471021) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_nuiae")
-
-[node name="Pakage" parent="Revenues/RecipeSelector/PakageControlerEpic" parent_id_path=PackedInt32Array(1099371872, 1188032821) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_pb5j1")
-
+[connection signal="pressed" from="StartDay" to="." method="_on_start_day_pressed"]
 [connection signal="input_event" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_input_event"]
 [connection signal="mouse_entered" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_mouse_exited"]
+[connection signal="input_event" from="Itens/SpaceMenu1" to="Itens/SpaceMenu1" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu1" to="Itens/SpaceMenu1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu1" to="Itens/SpaceMenu1" method="_on_mouse_exited"]
+[connection signal="input_event" from="Itens/SpaceMenu2" to="Itens/SpaceMenu2" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu2" to="Itens/SpaceMenu2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu2" to="Itens/SpaceMenu2" method="_on_mouse_exited"]
+[connection signal="input_event" from="Itens/SpaceMenu3" to="Itens/SpaceMenu3" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu3" to="Itens/SpaceMenu3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu3" to="Itens/SpaceMenu3" method="_on_mouse_exited"]
+[connection signal="input_event" from="Itens/SpaceMenu4" to="Itens/SpaceMenu4" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu4" to="Itens/SpaceMenu4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu4" to="Itens/SpaceMenu4" method="_on_mouse_exited"]
+[connection signal="input_event" from="Itens/SpaceMenu5" to="Itens/SpaceMenu5" method="_on_input_event"]
+[connection signal="mouse_entered" from="Itens/SpaceMenu5" to="Itens/SpaceMenu5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Itens/SpaceMenu5" to="Itens/SpaceMenu5" method="_on_mouse_exited"]
 
 [editable path="Revenues/RecipeSelector"]
-[editable path="Revenues/RecipeSelector/PakageControlerComum"]
-[editable path="Revenues/RecipeSelector/PakageControlerRare"]
-[editable path="Revenues/RecipeSelector/PakageControlerEpic"]

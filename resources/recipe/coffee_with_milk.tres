@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://bxqspfnl3c3rt"]
+
+[ext_resource type="Texture2D" uid="uid://3yni8b1uqtei" path="res://assets/cards/recipe/coffe_milk.png" id="1_qqv37"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_iciil"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="3_7fb76"]
+[ext_resource type="Resource" uid="uid://cfx8618po2euw" path="res://resources/cards/ingredients/milk.tres" id="3_rbkba"]
+[ext_resource type="Resource" uid="uid://idhgh4ko8bi8" path="res://resources/cards/ingredients/coffee.tres" id="4_da02l"]
+
+[resource]
+script = ExtResource("3_7fb76")
+id = "coffemilk"
+name = "Coffee with Milk"
+ingredients = Array[ExtResource("2_iciil")]([ExtResource("3_rbkba"), ExtResource("4_da02l")])
+price = 4
+unlocked = true
+icon = ExtResource("1_qqv37")

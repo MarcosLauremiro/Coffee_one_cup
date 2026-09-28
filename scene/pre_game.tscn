@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dc5jinoo2a2ac"]
+
+[ext_resource type="Script" uid="uid://c2kft87k7hfcy" path="res://script/pre_game.gd" id="1_1h0t0"]
+[ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="1_wg14r"]
+[ext_resource type="Texture2D" uid="uid://kuyewgwbqhwl" path="res://assets/background/background.png" id="2_wg14r"]
+[ext_resource type="PackedScene" uid="uid://cu5mp3tlx2vjr" path="res://scene/ui/text_dialog.tscn" id="3_wg14r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+texture = ExtResource("2_wg14r")
+
+[node name="PreGame" type="Control" unique_id=1593727242]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1h0t0")
+
+[node name="Panel" type="Panel" parent="." unique_id=1511422706]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g4v7s")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=768787296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1620488241]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartDay" parent="Panel/MarginContainer/VBoxContainer" unique_id=1570703520 instance=ExtResource("1_wg14r")]
+layout_mode = 2
+text = "STR_DAY"
+
+[node name="GoMenu" parent="Panel/MarginContainer/VBoxContainer" unique_id=1868641029 instance=ExtResource("1_wg14r")]
+layout_mode = 2
+text = "MN"
+
+[node name="TextDialog" parent="Panel/MarginContainer/VBoxContainer" unique_id=1844940489 instance=ExtResource("3_wg14r")]
+visible = false
+offset = Vector2(0, -80)
+transform = Transform2D(1, 0, 0, 1, 0, -80)
+text_speed = 0.05
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/StartDay" to="." method="_on_start_day_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/GoMenu" to="." method="_on_go_menu_pressed"]
+
+[editable path="Panel/MarginContainer/VBoxContainer/TextDialog"]

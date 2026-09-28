@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://dkmae61ljhskm"]
+
+[ext_resource type="Texture2D" uid="uid://dssv5wfec78o" path="res://assets/cards/recipe/balckcoffee.png" id="1_1jo43"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_nnjf2"]
+[ext_resource type="Resource" uid="uid://idhgh4ko8bi8" path="res://resources/cards/ingredients/coffee.tres" id="3_bld3s"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="4_hbc4v"]
+
+[resource]
+script = ExtResource("4_hbc4v")
+id = "strongcoffee"
+name = "Strong Coffee"
+ingredients = Array[ExtResource("2_nnjf2")]([ExtResource("3_bld3s"), ExtResource("3_bld3s"), ExtResource("3_bld3s")])
+price = 6
+icon = ExtResource("1_1jo43")

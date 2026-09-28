@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5mjty80extfs"]
 
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="1_02osr"]
+[ext_resource type="Script" uid="uid://bhorg7p83dqb3" path="res://script/list_recipe_unlocked.gd" id="1_4rlj8"]
 [ext_resource type="Shader" uid="uid://bbevk7x66orit" path="res://shader/background_blur.gdshader" id="1_vhy8r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rlj8"]
@@ -15,6 +16,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4rlj8")
 
 [node name="Panel" type="Panel" parent="." unique_id=1086199635]
 material = SubResource("ShaderMaterial_4rlj8")
@@ -24,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1813953703]
 layout_mode = 1
@@ -38,16 +42,16 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer" unique_id=1076790561]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=130152128]
-layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
 size_flags_vertical = 6
-text = "Receita 1"
+alignment = 1
 
 [node name="Return" parent="." unique_id=1570703520 instance=ExtResource("1_02osr")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 8.0
+offset_bottom = 8.0
 text = "Voltar"
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

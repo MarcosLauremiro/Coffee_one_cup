@@ -33,7 +33,6 @@ func spawn_customer() -> void:
 	var order = order_manager.generate_order(1)
 	customer.setup(order)
 	
-
 func _on_start_day_pressed() -> void:
 	if !playing:
 		hud.show()
@@ -42,8 +41,6 @@ func _on_start_day_pressed() -> void:
 	start_day.hide()
 	pre_game.hide()
 	
-	
-
 func _on_area_2d_mouse_entered() -> void:
 	table.material.set_shader_parameter("outline_enabled", true)
 

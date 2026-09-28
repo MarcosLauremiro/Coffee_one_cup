@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://dp1qdtxtn17ub"]
+
+[ext_resource type="Texture2D" uid="uid://cpu5gvw2g7sma" path="res://assets/cards/recipe/coffee.png" id="1_7fxjm"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_iqxgr"]
+[ext_resource type="Resource" uid="uid://idhgh4ko8bi8" path="res://resources/cards/ingredients/coffee.tres" id="3_iqxgr"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="3_vbrhj"]
+
+[resource]
+script = ExtResource("3_vbrhj")
+id = "coffee"
+name = "Coffee common"
+description = "Coffee"
+ingredients = Array[ExtResource("2_iqxgr")]([ExtResource("3_iqxgr"), ExtResource("3_iqxgr")])
+price = 3
+unlocked = true
+icon = ExtResource("1_7fxjm")

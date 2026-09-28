@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://bnirnm2503ath"]
+
+[ext_resource type="Script" uid="uid://c5feq0n1584fx" path="res://script/recipe_item.gd" id="1_relk5"]
+[ext_resource type="Texture2D" uid="uid://dssv5wfec78o" path="res://assets/cards/recipe/balckcoffee.png" id="3_vfxck"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="4_073d0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ex57x"]
+load_path = "res://.godot/imported/recipe_list.png-454473a8a4d00a20c4cffdc1b31645da.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(268, 67)
+
+[node name="RecipeItem" type="PanelContainer" unique_id=668813357]
+custom_minimum_size = Vector2(250, 60)
+size_flags_horizontal = 3
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_relk5")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=374638172]
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_ex57x")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=678756673]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=890341620]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1001982718]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_vfxck")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1912326067]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=645928793]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_073d0")
+text = "café forte"
+
+[node name="Ingredients" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=968812515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.29245296, 0.1300923, 0.08402275, 1)
+theme_override_fonts/font = ExtResource("4_073d0")
+theme_override_font_sizes/font_size = 10
+text = "cafe + cafe"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=640875960]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Price" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer" unique_id=137118971]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_073d0")
+text = "12,00"
+
+[node name="Area2D" type="Area2D" parent="MarginContainer/HBoxContainer" unique_id=1955284120]
+position = Vector2(-8, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/HBoxContainer/Area2D" unique_id=1285826711]
+position = Vector2(134, 33.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[connection signal="input_event" from="MarginContainer/HBoxContainer/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/Area2D" to="." method="_on_area_2d_mouse_exited"]

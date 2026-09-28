@@ -1,20 +1,54 @@
 extends Area2D
 
-var normal : Texture = load("res://assets/ui/game/menu/revenue_normal.png")
-var hover : Texture = load("res://assets/ui/game/menu/revenue_hover.png")
+@export var slot: int = 0
+
+const NORMAL: Texture = preload("res://assets/ui/game/menu/revenue_normal.png")
+const HOVER: Texture = preload("res://assets/ui/game/menu/revenue_hover.png")
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var recipe_selector: Control = $"../../Revenues/RecipeSelector"
 @onready var revenues: CanvasLayer = $"../../Revenues"
 
+
+func _ready() -> void:
+	MenuData.menu_changed.connect(update_recipe)   # <- bug 1
+	update_recipe()
+
+
+func update_recipe() -> void:
+	var recipe := MenuData.get_recipe(slot)
+	sprite.modulate = Color.WHITE
+
+	if recipe and recipe.icon:
+		sprite.texture = recipe.icon
+	else:
+		sprite.texture = NORMAL
+
+
 func _on_mouse_entered() -> void:
-	sprite.texture = hover
+	if revenues.visible:   # painel aberto: ignora o slot de trás
+		return
+
+	if MenuData.get_recipe(slot):
+		sprite.modulate = Color(1.25, 1.25, 1.25)   # clareia em vez de trocar o ícone (bug 5)
+	else:
+		sprite.texture = HOVER
+
 	CursorManager.change_cursor("pointer")
 	MusicManager.play_sfx("button_hover")
 
-func _on_mouse_exited() -> void:
-	sprite.texture = normal
+
+func _on_mouse_exited() -> void:   # conecte o sinal mouse_exited do Area2D
+	update_recipe()
+	CursorManager.change_cursor("default")   # ajuste pro nome que você usa
+
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if revenues.visible:   # bug 2: não deixa o clique passar pro slot atrás
+		return
+
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			revenues.show()
+			recipe_selector.setup(slot)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:   # bônus: botão direito limpa o slot
+			MenuData.remove_recipe(slot)
