@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://d06aka6xymr13"]
+
+[ext_resource type="Texture2D" uid="uid://ckwfyyh2wra1u" path="res://assets/cards/recipe/juice_orange.png" id="1_owg3x"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_8jbse"]
+[ext_resource type="Resource" uid="uid://hvkvarhtq3ds" path="res://resources/cards/ingredients/water.tres" id="3_u3kmn"]
+[ext_resource type="Resource" uid="uid://cdaus3tomeo7n" path="res://resources/cards/ingredients/orange.tres" id="4_hnewe"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="5_dcv6i"]
+
+[resource]
+script = ExtResource("5_dcv6i")
+id = "juice_orange"
+name = "Juice Orange"
+ingredients = Array[ExtResource("2_8jbse")]([ExtResource("3_u3kmn"), ExtResource("4_hnewe")])
+price = 4
+icon = ExtResource("1_owg3x")

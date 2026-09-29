@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cdaus3tomeo7n"]
+
+[ext_resource type="Texture2D" uid="uid://dmq6kae6x3r31" path="res://assets/cards/ingredient_card_back.png" id="1_t8ydv"]
+[ext_resource type="Texture2D" uid="uid://xayiol5oxtrs" path="res://assets/cards/ingredient_orange_card.png" id="2_0i7bb"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_ewptv"]
+
+[resource]
+script = ExtResource("3_ewptv")
+id = "orange"
+title = "Orange"
+weight = 1
+front = ExtResource("2_0i7bb")
+back = ExtResource("1_t8ydv")

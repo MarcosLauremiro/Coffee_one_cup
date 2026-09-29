@@ -1,10 +1,13 @@
 class_name Order
 extends Control
 
-const ORDER_TIME := 4.0
+const ORDER_TIME := 40.0
 
 const COLOR_GREEN := Color("46bc77ff")
 const COLOR_RED := Color("cf462eff")
+
+var recipe: RecipeData
+var customer: Customer
 
 var normal_style := StyleBoxFlat.new()
 var danger_style := StyleBoxFlat.new()
@@ -27,6 +30,7 @@ func _ready() -> void:
 
 
 func setup(order_data: RecipeData) -> void:
+	recipe = order_data
 	recipe_name.text = "Um " + order_data.name
 	price.text = "$%d" % order_data.price
 
@@ -47,7 +51,6 @@ func _process(_delta: float) -> void:
 		progress_bar.add_theme_stylebox_override("fill", danger_style)
 	else:
 		progress_bar.add_theme_stylebox_override("fill", normal_style)
-
 
 func _on_timer_timeout() -> void:
 	finished = true

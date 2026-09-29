@@ -8,6 +8,7 @@
 script = ExtResource("3_kxm7r")
 id = "arabian_coffee"
 title = "Coffee Arabian"
+weight = 1
 front = ExtResource("2_67b4u")
 back = ExtResource("1_cjhd6")
 rarity = "epic"

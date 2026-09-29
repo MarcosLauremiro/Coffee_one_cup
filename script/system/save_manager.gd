@@ -6,9 +6,9 @@ var data := {
 	"day": 1,
 	"money": 0,
 	"unlocked_cards": [],
-	"unlocked_recipes": [RecipeData],
+	"unlocked_recipes": [],
 	"upgrades": {},
-	"menu": [RecipeData]
+	"menu": ["", "", "", "", "", ""]
 }
 
 func save_game() -> void:
@@ -41,7 +41,13 @@ func load_game() -> bool:
 		push_error("Save corrompido.")
 		return false
 
+	if typeof(json.data) != TYPE_DICTIONARY:
+		push_error("Save inválido.")
+		return false
+
 	data = json.data
+	MenuData.load_menu()
+	MoneyManager.load_from_save()
 	return true
 
 

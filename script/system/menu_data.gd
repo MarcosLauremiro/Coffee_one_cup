@@ -10,7 +10,6 @@ var recipes: Array[RecipeData] = []
 func _ready() -> void:
 	recipes.resize(MAX_SLOTS)
 
-
 func set_recipe(slot: int, recipe: RecipeData) -> void:
 	if slot < 0 or slot >= MAX_SLOTS:
 		return
@@ -57,3 +56,55 @@ func on_has_recipe() -> bool:
 			return true
 
 	return false
+
+func save_menu() -> Array:
+	var saved_menu: Array = []
+
+	for recipe in recipes:
+		if recipe != null:
+			saved_menu.append(recipe.id)
+		else:
+			saved_menu.append("")
+
+	return saved_menu
+
+func load_menu() -> void:
+	recipes.clear()
+	recipes.resize(MAX_SLOTS)
+
+	if not SaveManager.data.has("menu"):
+		return
+
+	var saved_menu = SaveManager.data["menu"]
+
+	if not saved_menu is Array:
+		return
+
+	for i in range(min(saved_menu.size(), MAX_SLOTS)):
+		var recipe_id: String = str(saved_menu[i])
+
+		if recipe_id.is_empty():
+			continue
+
+		var recipe := RecipeDatabase.get_recipe_by_id(recipe_id)
+
+		if recipe != null:
+			recipes[i] = recipe
+
+	menu_changed.emit()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

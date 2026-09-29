@@ -11,6 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_iysma"]
 [ext_resource type="Texture2D" uid="uid://dyvkwkurmd1jv" path="res://assets/package_rare_pening_Sheet.png" id="11_gr4ay"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iysma"]
+resource_local_to_scene = true
+shader = ExtResource("7_x8bil")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
@@ -19,13 +26,6 @@ shader_parameter/outline_size = 1.0
 shader_parameter/outline_enabled = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
-resource_local_to_scene = true
-shader = ExtResource("7_x8bil")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-shader_parameter/outline_enabled = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nuyk"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
@@ -196,7 +196,7 @@ position = Vector2(670, 54)
 price_package = "10"
 
 [node name="Pakage" parent="PakageControlerComum" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_gr4ay")
+material = SubResource("ShaderMaterial_iysma")
 
 [node name="PakageControlerRare" parent="." unique_id=261471021 instance=ExtResource("5_i27hv")]
 position = Vector2(670, 127)
@@ -204,7 +204,7 @@ price_package = "20"
 type = 1
 
 [node name="Pakage" parent="PakageControlerRare" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_nbk3f")
+material = SubResource("ShaderMaterial_gr4ay")
 texture = ExtResource("7_aifke")
 
 [node name="PakageControlerEpic" parent="." unique_id=1188032821 instance=ExtResource("5_i27hv")]
@@ -213,7 +213,7 @@ price_package = "30"
 type = 2
 
 [node name="Pakage" parent="PakageControlerEpic" index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_3nuyk")
+material = SubResource("ShaderMaterial_nbk3f")
 texture = ExtResource("6_x8bil")
 
 [node name="OpenPackage" type="Node2D" parent="." unique_id=290026398]

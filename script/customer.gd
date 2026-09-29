@@ -43,8 +43,12 @@ func enter() -> void:
 		0.1
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
-
 func gerate_order() -> void:
 	dialog_order.visible = true 
 	dialog_order.show_text("Um", str(order.name))
-	
+
+func order_received() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 1.3)
+	await tween.finished
+	queue_free()

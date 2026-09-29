@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://cl4sy8djfg4al"]
+
+[ext_resource type="Texture2D" uid="uid://dl5570bjg6wvw" path="res://assets/cards/recipe/coffee_ice.png" id="1_dbs1p"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_2y3k3"]
+[ext_resource type="Resource" uid="uid://idhgh4ko8bi8" path="res://resources/cards/ingredients/coffee.tres" id="3_iml78"]
+[ext_resource type="Resource" uid="uid://4rf8bocld802" path="res://resources/cards/ingredients/ice.tres" id="4_yrysr"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="5_yftsq"]
+
+[resource]
+script = ExtResource("5_yftsq")
+id = "coffee_ice"
+name = "Ice Coffee"
+ingredients = Array[ExtResource("2_2y3k3")]([ExtResource("3_iml78"), ExtResource("4_yrysr")])
+price = 3
+icon = ExtResource("1_dbs1p")

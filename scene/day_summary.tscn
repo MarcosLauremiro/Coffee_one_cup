@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cycqddaleughw"]
 
 [ext_resource type="Script" uid="uid://bqyg5tcjg17tm" path="res://day_summary.gd" id="1_jh20s"]
-[ext_resource type="PackedScene" uid="uid://cu5mp3tlx2vjr" path="res://scene/ui/text_dialog.tscn" id="1_onfav"]
 [ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="2_f4p67"]
 [ext_resource type="Texture2D" uid="uid://d06q7r00nbd2" path="res://assets/background/note.png" id="3_boht4"]
 [ext_resource type="Texture2D" uid="uid://cv7flthgrln60" path="res://assets/Sprite-0009.png" id="4_boht4"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="6_n1jpo"]
 
 [node name="DaySummary" type="Node2D" unique_id=2143226375]
 script = ExtResource("1_jh20s")
@@ -13,9 +13,6 @@ script = ExtResource("1_jh20s")
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
-
-[node name="TextDialog" parent="." unique_id=1844940489 instance=ExtResource("1_onfav")]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1339090924]
 position = Vector2(320, 180)
@@ -33,5 +30,16 @@ offset_left = 462.0
 offset_top = 307.0
 offset_right = 622.0
 offset_bottom = 337.0
+
+[node name="Total" type="Label" parent="." unique_id=841584508]
+offset_left = 377.0
+offset_top = 213.0
+offset_right = 417.0
+offset_bottom = 236.0
+theme_override_fonts/font = ExtResource("6_n1jpo")
+
+[node name="Label" type="Label" parent="." unique_id=986448559]
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="ButtonNextDay" to="." method="_on_button_next_day_pressed"]

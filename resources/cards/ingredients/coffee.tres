@@ -8,5 +8,6 @@
 script = ExtResource("3_xp2u0")
 id = "coffee"
 title = "Coffee"
+weight = 1
 front = ExtResource("2_m72ei")
 back = ExtResource("1_d28x0")

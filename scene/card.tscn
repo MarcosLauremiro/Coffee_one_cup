@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://1g4fg881gxrt"]
 
 [ext_resource type="Script" uid="uid://co6m1kgupv6hy" path="res://script/card.gd" id="1_7p64d"]
-[ext_resource type="Texture2D" uid="uid://cujtrgx4ekfu" path="res://assets/cards/event_card_back.png" id="2_gw1lc"]
+[ext_resource type="Texture2D" uid="uid://dmq6kae6x3r31" path="res://assets/cards/ingredient_card_back.png" id="2_gw1lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(53.75, 71.75)
@@ -16,12 +16,12 @@ script = ExtResource("1_7p64d")
 
 [node name="Front" type="Sprite2D" parent="Front" unique_id=921518916]
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_gw1lc")
 
 [node name="Back" type="Node2D" parent="." unique_id=1085151767]
 
 [node name="Back" type="Sprite2D" parent="Back" unique_id=567377391]
 scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_gw1lc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1832428719]
 

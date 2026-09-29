@@ -64,7 +64,9 @@ custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
 texture = ExtResource("5_lky30")
 
-[node name="Timer" type="Label" parent="Timer" unique_id=693666787]
+[node name="TimerCont" type="Label" parent="Timer" unique_id=693666787]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pvgpj")
 text = "test"
+
+[node name="Timer" type="Timer" parent="Timer" unique_id=502047125]

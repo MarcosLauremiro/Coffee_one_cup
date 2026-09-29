@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://nh8kt600sv3d" path="res://scene/hud.tscn" id="6_ll5lq"]
 [ext_resource type="Texture2D" uid="uid://dubx5m1w320p7" path="res://assets/ui/game/table.png" id="7_17rxn"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_ll5lq"]
+[ext_resource type="Script" uid="uid://dfrru3wq8v1c7" path="res://script/trash.gd" id="8_17rxn"]
+[ext_resource type="Script" uid="uid://bap0bgsbykv7v" path="res://script/slot.gd" id="8_ll5lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(200, 86)
@@ -17,20 +19,6 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 shader_parameter/outline_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpk70"]
-resource_local_to_scene = true
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-shader_parameter/outline_enabled = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll5lq"]
-resource_local_to_scene = true
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-shader_parameter/outline_enabled = false
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_17rxn"]
 resource_local_to_scene = true
 shader = ExtResource("7_ll5lq")
@@ -38,10 +26,27 @@ shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
 shader_parameter/outline_enabled = false
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ym5sv"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sng2h"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(116, 76)
+
 [node name="Game" type="Node2D" unique_id=1793179067]
 script = ExtResource("1_33cqm")
-metadata/_edit_vertical_guides_ = [618.0, 320.0]
-metadata/_edit_horizontal_guides_ = [180.0]
+metadata/_edit_vertical_guides_ = [618.0, 320.0, 608.0]
+metadata/_edit_horizontal_guides_ = [180.0, 298.0]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=306933040]
 position = Vector2(320, 180)
@@ -51,7 +56,10 @@ texture = ExtResource("2_xwcet")
 [node name="Customers" type="Node2D" parent="." unique_id=491406571]
 
 [node name="Hud" parent="." unique_id=1821041077 instance=ExtResource("6_ll5lq")]
-visible = false
+
+[node name="ColorRect" parent="Hud" index="0" unique_id=1064972132]
+offset_top = 1.0
+offset_bottom = 35.0
 
 [node name="Counter" type="Sprite2D" parent="." unique_id=492040448]
 position = Vector2(320, 180)
@@ -76,20 +84,80 @@ texture = ExtResource("7_17rxn")
 visible = false
 
 [node name="Pakage" parent="TableCards/PakageControlerComum" parent_id_path=PackedInt32Array(160747537, 279074657) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_qpk70")
+material = SubResource("ShaderMaterial_17rxn")
+
+[node name="Price" parent="TableCards/PakageControlerComum" parent_id_path=PackedInt32Array(160747537, 279074657) index="2" unique_id=409501543]
+visible = false
 
 [node name="Pakage" parent="TableCards/PakageControlerRare" parent_id_path=PackedInt32Array(160747537, 261471021) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_ll5lq")
+material = SubResource("ShaderMaterial_ym5sv")
+
+[node name="Price" parent="TableCards/PakageControlerRare" parent_id_path=PackedInt32Array(160747537, 261471021) index="2" unique_id=409501543]
+visible = false
 
 [node name="Pakage" parent="TableCards/PakageControlerEpic" parent_id_path=PackedInt32Array(160747537, 1188032821) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_17rxn")
+material = SubResource("ShaderMaterial_sng2h")
+
+[node name="Price" parent="TableCards/PakageControlerEpic" parent_id_path=PackedInt32Array(160747537, 1188032821) index="2" unique_id=409501543]
+visible = false
+
+[node name="CollisionShape2D" parent="TableCards/OpenPackage/Package/Area2D" parent_id_path=PackedInt32Array(160747537, 847074038) index="0" unique_id=1762811780]
+position = Vector2(315, 185)
+scale = Vector2(0.90657055, 10.244264)
+
+[node name="Trash" type="Area2D" parent="TableCards" unique_id=1223195108]
+script = ExtResource("8_17rxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableCards/Trash" unique_id=1507275213]
+position = Vector2(58, 322)
+shape = SubResource("RectangleShape2D_yf5fn")
+debug_color = Color(0.9089565, 0.062554024, 0.7131864, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="TableCards/Trash" unique_id=2057568829]
+offset_top = 289.0
+offset_right = 117.0
+offset_bottom = 360.0
+color = Color(0.7220274, 0.07846785, 0.16409835, 0.091000006)
+
+[node name="SlotItens" type="CanvasLayer" parent="." unique_id=1382717168]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SlotItens" unique_id=1341170917]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -47.0
+offset_right = 64.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Slot1" type="PanelContainer" parent="SlotItens/HBoxContainer" unique_id=1708809727]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+script = ExtResource("8_ll5lq")
+
+[node name="Slot2" type="PanelContainer" parent="SlotItens/HBoxContainer" unique_id=142449148]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+script = ExtResource("8_ll5lq")
+
+[node name="slot3" type="PanelContainer" parent="SlotItens/HBoxContainer" unique_id=1562048473]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+script = ExtResource("8_ll5lq")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="TableCards/Return" to="." method="_on_return_pressed"]
 
+[editable path="Hud"]
 [editable path="TableCards"]
+[editable path="TableCards/Return"]
 [editable path="TableCards/PakageControlerComum"]
 [editable path="TableCards/PakageControlerRare"]
 [editable path="TableCards/PakageControlerEpic"]

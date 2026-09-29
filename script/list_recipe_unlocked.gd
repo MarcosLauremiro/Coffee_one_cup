@@ -7,8 +7,7 @@ const RECIPE_ITEM_SCENE := preload("res://scene/ui/recipe_item.tscn")
 
 var current_slot: int = -1
 var _can_pick: bool = false
-var _open_id: int = 0   # invalida travas de aberturas antigas
-
+var _open_id: int = 0 
 
 func setup(slot: int) -> void:
 	current_slot = slot
@@ -23,7 +22,7 @@ func setup(slot: int) -> void:
 	var recipes: Array[RecipeData] = RecipeDatabase.get_recipe_unlocked()
 
 	for recipe in recipes:
-		if MenuData.has_recipe(recipe):   # já está no cardápio, pula
+		if MenuData.has_recipe(recipe):
 			continue
 
 		var item := RECIPE_ITEM_SCENE.instantiate() as RecipeItem
@@ -38,29 +37,26 @@ func setup(slot: int) -> void:
 	if my_id == _open_id and visible:
 		_can_pick = true
 
-
 func _on_recipe_chosen(recipe: RecipeData) -> void:
 	if not _can_pick:
 		return
-	_can_pick = false   # só a primeira escolha vale
+
+	_can_pick = false
 
 	MenuData.set_recipe(current_slot, recipe)
 	close.call_deferred()
 
-
 func close() -> void:
 	_can_pick = false
-	_open_id += 1   # cancela qualquer trava pendente
+	_open_id += 1
 	_clear_items()
 	hide()
 	(get_parent() as CanvasLayer).hide()
-
 
 func _clear_items() -> void:
 	for child in v_box_container.get_children():
 		v_box_container.remove_child(child)
 		child.queue_free()
-
 
 func _on_return_pressed() -> void:
 	close()

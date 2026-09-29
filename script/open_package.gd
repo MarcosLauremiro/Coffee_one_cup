@@ -29,6 +29,23 @@ var collected_cards: Array[CardData] = []
 var current_card: Card
 var current_index := 0
 
+const CARDS_PER_PACKAGE := 3
+const UPGRADE_CHANCE := 0.01
+
+const HIGH_WEIGHT_CHANCE := 0.85
+
+const RARITY_ORDER: Array[Package.RarityType] = [
+	Package.RarityType.COMUM,
+	Package.RarityType.RARE,
+	Package.RarityType.EPIC,
+]
+
+const RARITY_NAMES := {
+	Package.RarityType.COMUM: "common",
+	Package.RarityType.RARE: "rare",
+	Package.RarityType.EPIC: "epic",
+}
+
 func _ready() -> void:
 	background.hide()
 	
@@ -118,21 +135,62 @@ func generate_package() -> void:
 	package_cards.clear()
 	collected_cards.clear()
 
-	var common_cards: Array[CardData] = []
+	var rarity_type := _roll_rarity(type_package_opening)
+	var pool := _get_pool(rarity_type)
+
+	if pool.is_empty():
+		push_warning("Nenhuma carta com raridade %s" % RARITY_NAMES[rarity_type])
+		return
+
+	for i in CARDS_PER_PACKAGE:
+		package_cards.append(_pick_weighted(pool))
+
+
+# 1% de chance de o pacote inteiro subir um nível (épico não sobe)
+func _roll_rarity(base: Package.RarityType) -> Package.RarityType:
+	var index := RARITY_ORDER.find(base)
+	var has_next := index < RARITY_ORDER.size() - 1
+
+	if has_next and randf() < UPGRADE_CHANCE:
+		return RARITY_ORDER[index + 1]
+
+	return base
+
+
+func _get_pool(rarity_type: Package.RarityType) -> Array[CardData]:
+	var pool: Array[CardData] = []
+	var rarity_name: String = RARITY_NAMES[rarity_type]
 
 	for card in CardDatabase.cards:
-		if card.rarity == "common":
-			common_cards.append(card)
+		if card.type != "ingredient":
+			continue
+		if card.rarity != rarity_name:
+			continue
+		pool.append(card)
 
-	common_cards.shuffle()
+	return pool
 
-	var amount: int = min(3, common_cards.size())
+# Sorteio com reposição: a mesma carta pode sair de novo
+func _pick_weighted(pool: Array[CardData]) -> CardData:
+	var high: Array[CardData] = []
+	var low: Array[CardData] = []
 
-	for i in range(amount):
-		package_cards.append(common_cards[i])
+	for card in pool:
+		if card.weight >= 1:
+			high.append(card)
+		else:
+			low.append(card)
+
+	var use_high := randf() < HIGH_WEIGHT_CHANCE
+	var group := high if use_high else low
+
+	# Se um grupo estiver vazio, usa o outro
+	if group.is_empty():
+		group = low if use_high else high
+
+	return group.pick_random()
 
 func show_next_card() -> void:
-	print(collected_cards)
 	if current_index >= package_cards.size():
 		finish_package()
 		return

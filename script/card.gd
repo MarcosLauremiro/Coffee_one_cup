@@ -2,6 +2,10 @@ class_name Card
 extends Node2D
 
 signal clicked(card: Card)
+signal stacked(card: Card)
+signal dropped(card: Card)
+
+const DEFAULT_BACK: Texture2D = preload("res://assets/cards/ingredient_card_back.png")
 
 @onready var front: Sprite2D = $Front/Front
 @onready var back: Sprite2D = $Back/Back
@@ -11,9 +15,12 @@ const DRAG_THRESHOLD := 5.0
 
 var data: CardData
 
+var recipe: RecipeData = null
+
 var is_front := false
 var is_flipping := false
 var is_removing := false
+var has_moved := false
 
 # Quem cria a carta liga isso (a mesa liga, o pacote não)
 var draggable := false
@@ -37,7 +44,7 @@ func render() -> void:
 	if data == null:
 		return
 	front.texture = data.front
-	back.texture = data.back
+	back.texture = data.back if data.back != null else DEFAULT_BACK
 	_apply_back()
 
 
@@ -113,6 +120,7 @@ func _on_area_2d_input_event(
 
 	# Sempre registra o clique (serve pro pacote e pra mesa)
 	is_pressed = true
+	has_moved = false
 	mouse_down_position = get_global_mouse_position()
 	drag_offset = global_position - mouse_down_position
 
@@ -121,13 +129,18 @@ func _input(event: InputEvent) -> void:
 	if not is_pressed:
 		return
 
-	# Movimento: só começa a arrastar depois do limiar
 	if event is InputEventMouseMotion:
+		var mouse := get_global_mouse_position()
+
+		# Passou do limiar? Então já não é mais um clique, mesmo que a carta não arraste
+		if mouse_down_position.distance_to(mouse) >= DRAG_THRESHOLD:
+			has_moved = true
+
 		if not can_drag():
 			return
-		var mouse := get_global_mouse_position()
+
 		if not is_dragging:
-			if mouse_down_position.distance_to(mouse) < DRAG_THRESHOLD:
+			if not has_moved:
 				return
 			is_dragging = true
 			move_to_front()
@@ -142,11 +155,16 @@ func _input(event: InputEvent) -> void:
 
 		if is_dragging:
 			is_dragging = false
+			dropped.emit(self)
+			if is_removing:
+				return
+
 			var target := get_magnet_target()
 			if target != null:
 				global_position = target.global_position + Vector2(0, -20)
-		else:
-			# Foi só um clique: avisa o dono, ele decide (virar, coletar...)
+				stacked.emit(self)
+		elif not has_moved:
+			# Só um clique de verdade: avisa o dono (virar, coletar...)
 			clicked.emit(self)
 
 
@@ -176,3 +194,11 @@ func _is_above(a: Card, b: Card) -> bool:
 	if a.z_index != b.z_index:
 		return a.z_index > b.z_index
 	return a.get_index() > b.get_index()
+
+func start_drag() -> void:
+	is_pressed = true
+	is_dragging = true
+	has_moved = true
+	mouse_down_position = get_global_mouse_position()
+	drag_offset = global_position - mouse_down_position
+	move_to_front()

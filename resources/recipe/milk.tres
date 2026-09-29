@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RecipeData" format=3 uid="uid://3f0pgiarvpvw"]
+
+[ext_resource type="Texture2D" uid="uid://b4xxbep6ttawq" path="res://assets/cards/recipe/milk.png" id="1_uhtw8"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="2_n8tca"]
+[ext_resource type="Resource" uid="uid://cfx8618po2euw" path="res://resources/cards/ingredients/milk.tres" id="3_y7nkn"]
+[ext_resource type="Script" uid="uid://c4y7acc3vvcbj" path="res://resources/recipe/recipe_data.gd" id="4_q2ktn"]
+
+[resource]
+script = ExtResource("4_q2ktn")
+id = "milk"
+name = "Milk"
+ingredients = Array[ExtResource("2_n8tca")]([ExtResource("3_y7nkn"), ExtResource("3_y7nkn")])
+price = 3
+unlocked = true
+icon = ExtResource("1_uhtw8")
