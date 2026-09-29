@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dhy4kqklanmve"]
+
+[ext_resource type="Script" uid="uid://b8dajdlv6ap8e" path="res://scene/credit.gd" id="1_5g4l2"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="1_xknyl"]
+[ext_resource type="PackedScene" uid="uid://br1riu1yme06q" path="res://scene/ui/button_brown.tscn" id="2_hmpbm"]
+
+[node name="Credit" type="Control" unique_id=343346591]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5g4l2")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=148412281]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1095037923]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.5
+offset_top = 119.0
+offset_right = 65.5
+offset_bottom = 191.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1347238582]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.7241115, 0.16200739, 0.11780115, 1)
+theme_override_fonts/font = ExtResource("1_xknyl")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1426918245]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xknyl")
+theme_override_font_sizes/font_size = 24
+text = "@LAUREMIRO.DEV"
+
+[node name="ButtonBrown" parent="." unique_id=1570703520 instance=ExtResource("2_hmpbm")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 91.0
+offset_bottom = 49.0
+text = "RETURN"
+
+[connection signal="pressed" from="ButtonBrown" to="." method="_on_button_brown_pressed"]

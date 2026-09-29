@@ -2,16 +2,32 @@ extends Node
 
 var cards: Array[CardData] = []
 
-const CARDS_PATH := "res://resources/cards/"
 
+const CARD_FILES: Array[CardData] = [
+	preload("res://resources/cards/ingredients/coffee.tres"),
+	preload("res://resources/cards/ingredients/chocolate.tres"),
+	preload("res://resources/cards/ingredients/coffee_arabian.tres"),
+	preload("res://resources/cards/ingredients/honey.tres"),
+	preload("res://resources/cards/ingredients/ice.tres"),
+	preload("res://resources/cards/ingredients/milk.tres"),
+	preload("res://resources/cards/ingredients/milk_goat.tres"),
+	preload("res://resources/cards/ingredients/orange.tres"),
+	preload("res://resources/cards/ingredients/sugar.tres"),
+	preload("res://resources/cards/ingredients/water.tres"),
+]
 
 func _ready() -> void:
 	load_cards()
+	print("Cartas carregadas: ", cards.size())
+	for c in cards:
+		print(c.resource_path, " | type=", c.type, " | rarity=", c.rarity)
 
 
 func load_cards() -> void:
 	cards.clear()
-	_scan_directory(CARDS_PATH)
+	for card in CARD_FILES:
+		if card is CardData:
+			cards.append(card)
 
 
 func _scan_directory(path: String) -> void:
@@ -35,8 +51,10 @@ func _scan_directory(path: String) -> void:
 		if dir.current_is_dir():
 			_scan_directory(full_path)
 
-		elif file_name.ends_with(".tres"):
-			var card = load(full_path)
+		elif file_name.ends_with(".tres") or file_name.ends_with(".tres.remap"):
+			var clean_name := file_name.trim_suffix(".remap")
+			var card = load(path.path_join(clean_name))
+			print(clean_name, " -> ", card, " | é CardData? ", card is CardData)
 
 			if card is CardData:
 				cards.append(card)

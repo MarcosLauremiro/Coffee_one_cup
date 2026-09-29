@@ -12,6 +12,14 @@ const CARD_SCENE = preload("res://scene/card.tscn")
 @onready var slot_3: PanelContainer = $"../SlotItens/HBoxContainer/slot3"
 @onready var trash: Area2D = $Trash
 
+# no topo do script anexado ao nó TableCards
+signal pack_bought
+signal pack_opened
+signal recipe_prepared
+signal recipe_stored(recipe: RecipeData)
+signal pack_cut
+signal card_collected
+
 const CRAFT_DELAY := 0.5
 
 const SPAWN_ORIGIN := Vector2(40, 50) 
@@ -29,6 +37,7 @@ func _ready() -> void:
 
 func add_collected_card(card_data: CardData) -> void:
 	_spawn_card(card_data, _find_free_spawn_position())
+	card_collected.emit()
 
 func _find_free_spawn_position() -> Vector2:
 	for i in SPAWN_COLUMNS * SPAWN_ROWS:
@@ -100,6 +109,7 @@ func _craft(recipe: RecipeData, stack: Array[Card]) -> void:
 
 	var is_new := RecipeDatabase.unlock_recipe(recipe)
 	_spawn_card(RecipeDatabase.make_card_data(recipe), pos, recipe)
+	recipe_prepared.emit()
 
 	if is_new:
 		pass
@@ -147,6 +157,7 @@ func _on_card_dropped(card: Card) -> void:
 		var slot := _get_slot_under_mouse()
 		if slot != null and slot.is_empty():
 			slot.set_recipe(card.recipe)
+			recipe_stored.emit(card.recipe)
 			await card.remove_card()
 			card.queue_free()
 			return

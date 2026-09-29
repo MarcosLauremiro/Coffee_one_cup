@@ -115,7 +115,7 @@ func _on_area_2d_input_event(
 	current_index = 0
 
 	await open_package_animation()
-
+	table_cards.pack_cut.emit()
 	show_next_card()
 	
 func open_package_animation() -> void:
@@ -222,7 +222,8 @@ func finish_package() -> void:
 	animated_epic.hide()
 
 	CursorManager.change_cursor("default")
-	hide() 
+	table_cards.pack_opened.emit()
+	hide()
 	
 func _on_card_clicked(card: Card) -> void:
 	if card != current_card:

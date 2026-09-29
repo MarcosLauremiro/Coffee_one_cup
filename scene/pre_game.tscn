@@ -53,6 +53,11 @@ offset = Vector2(0, -80)
 transform = Transform2D(1, 0, 0, 1, 0, -80)
 text_speed = 0.05
 
+[node name="HelpButton" type="Button" parent="Panel" unique_id=453439137]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/StartDay" to="." method="_on_start_day_pressed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/GoMenu" to="." method="_on_go_menu_pressed"]
 

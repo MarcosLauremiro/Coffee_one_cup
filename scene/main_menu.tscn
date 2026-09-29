@@ -58,7 +58,7 @@ _data = {
 &"entered": SubResource("Animation_hmxu4")
 }
 
-[node name="MainMenu" type="Control" unique_id=1721256305 node_paths=PackedStringArray("option_button")]
+[node name="MainMenu" type="Control" unique_id=1721256305]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +66,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hxu56")
-option_button = NodePath("OptionButton")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=992791017]
 position = Vector2(320.38983, 179.2193)
@@ -88,7 +87,7 @@ offset_top = 139.0
 offset_right = -27.0
 offset_bottom = 170.0
 theme_override_constants/h_separation = 0
-text = "STR_GAME"
+text = "CREDITS"
 icon = ExtResource("4_hmxu4")
 
 [node name="CreditsGame" parent="." unique_id=1899936435 instance=ExtResource("4_0iwki")]
@@ -98,7 +97,7 @@ offset_top = 179.0
 offset_right = -27.0
 offset_bottom = 210.0
 theme_override_constants/h_separation = 0
-text = "Credits"
+text = "CREDITS"
 icon = ExtResource("6_1o50l")
 
 [node name="QuitGame" parent="." unique_id=1801011958 instance=ExtResource("4_0iwki")]
@@ -191,6 +190,7 @@ layout_mode = 1
 [connection signal="mouse_entered" from="StartGame" to="." method="_on_start_game_mouse_entered"]
 [connection signal="mouse_exited" from="StartGame" to="." method="_on_start_game_mouse_exited"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="CreditsGame" to="." method="_on_credits_game_pressed"]
 [connection signal="mouse_entered" from="QuitGame" to="." method="_on_quit_game_mouse_entered"]
 [connection signal="mouse_exited" from="QuitGame" to="." method="_on_quit_game_mouse_exited"]
 [connection signal="pressed" from="QuitGame" to="." method="_on_quit_game_pressed"]

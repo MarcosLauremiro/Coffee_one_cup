@@ -1,11 +1,36 @@
 keys,pt_BR,en,es
-STR_GAME,Jogar,Play,jugar
+STR_GAME,Jogar,Play,Jugar
 LOAD,Carregar,Load,Cargar
 QUI_GAME,Fechar,Quit,Salir
-PRE_DAY_ONE,AMANHÃ É A INAUGURAÇÃO...,Tomorrow is the grand opening...,MAÑANA ES LA INAUGURACIÓN...
-OPPEN_COFFEE_SHOP,Abrir cafeteria,Open a coffee shop,Abrir uma cafeteria
+PRE_DAY_ONE,"AMANHÃ É A INAUGURAÇÃO...","Tomorrow is the grand opening...","MAÑANA ES LA INAUGURACIÓN..."
+OPPEN_COFFEE_SHOP,Abrir cafeteria,Open a coffee shop,Abrir una cafetería
 DAY,Dia,Day,Día
-STR_DAY,Iniciar dia,Strat day,Iniciar el día
+STR_DAY,Iniciar dia,Start day,Iniciar el día
 MN,Cardápio,Menu,Menú
 INST_PRE_GAME,Tente criar um cardápio para começar,Try to create a menu to start,Intenta crear un menú para empezar
 RETURN,Voltar,Return,Regresar
+CREDITS,Créditos,Credits,Créditos
+TUT_SKIP,Pular tutorial,Skip tutorial,Saltar tutorial
+TUT_NEXT,Próximo,Next,Siguiente
+TUT_DONE,Finalizar tutorial,Finish tutorial,Finalizar tutorial
+TUT_PRE_1_TITLE,Como jogar,How to play,Cómo jugar
+TUT_PRE_1_TEXT,"Você precisa criar um cardápio para o seu café. Você pode escolher entre diferentes tipos de receitas doces e salgados. Depois de criar o cardápio você poderá abrir o café e começar a atender os clientes.","You need to create a menu for your coffee shop. You can choose from different types of coffee, sweets, and savory items. After creating the menu, you can open the coffee shop and start serving customers.","Necesitas crear un menú para tu cafetería. Puedes elegir entre diferentes tipos de café, dulces y salados. Después de crear el menú, podrás abrir la cafetería y comenzar a atender a los clientes."
+TUT_PRE_2_TITLE,Escolha uma receita,Choose a recipe,Elige una receta
+TUT_PRE_2_TEXT,"Click no espaço no cardapio e selecione uma receita para adicioná-la ao cardápio. Você pode escolher entre diferentes tipos de receitas, doces e salgados.","Click on the space in the menu and select a recipe to add it to the menu. You can choose from different types of coffee, sweets, and savory items.","Haz clic en el espacio del menú y selecciona una receta para agregarla al menú. Puedes elegir entre diferentes tipos de café, dulces y salados."
+TUT_GAME_1_TITLE,Vá até a mesa,Go to the table,Ve a la mesa
+TUT_GAME_1_TEXT,"Clique na mesa para começar a preparar as receitas.","Click on the table to start preparing recipes.","Haz clic en la mesa para empezar a preparar las recetas."
+TUT_GAME_2_TITLE,Compre um pacote,Buy a pack,Compra un paquete
+TUT_GAME_2_TEXT,"Compre um pacote de cartas na loja. Ele contém os ingredientes que você vai usar nas receitas.","Buy a card pack from the shop. It contains the ingredients you will use in your recipes.","Compra un paquete de cartas en la tienda. Contiene los ingredientes que usarás en tus recetas."
+TUT_GAME_3_TITLE,Abra o pacote,Open the pack,Abre el paquete
+TUT_GAME_3_TEXT,"Clique no pacote para abri-lo e receber os ingredientes.","Click on the pack to open it and get your ingredients.","Haz clic en el paquete para abrirlo y obtener los ingredientes."
+TUT_GAME_4_TITLE,Prepare a receita,Prepare the recipe,Prepara la receta
+TUT_GAME_4_TEXT,"Arraste uma carta e coloque em cima de outra. Depois, clique nelas para preparar a receita.","Drag a card and place it on top of another one. Then click on them to prepare the recipe.","Arrastra una carta y colócala encima de otra. Luego, haz clic en ellas para preparar la receta."
+TUT_GAME_5_TITLE,Guarde a receita,Store the recipe,Guarda la receta
+TUT_GAME_5_TEXT,"Com a receita pronta, arraste-a até um dos espaços de receitas para guardá-la.","With the recipe ready, drag it to one of the recipe slots to store it.","Con la receta lista, arrástrala a uno de los espacios de recetas para guardarla."
+TUT_GAME_6_TITLE,Volte para a loja,Return to the shop,Vuelve a la tienda
+TUT_GAME_6_TEXT,"Clique em Voltar para sair da mesa e voltar para a loja.","Click Return to leave the table and go back to the shop.","Haz clic en Regresar para salir de la mesa y volver a la tienda."
+TUT_GAME_7_TITLE,Atenda o cliente,Serve the customer,Atiende al cliente
+TUT_GAME_7_TEXT,"Arraste a receita do espaço até o cliente que fez o pedido para entregá-la e ganhar dinheiro.","Drag the recipe from the slot to the customer who placed the order to deliver it and earn money.","Arrastra la receta del espacio hasta el cliente que hizo el pedido para entregarla y ganar dinero."
+TUT_GAME_3_TEXT,"Clique no pacote para cortá-lo e abri-lo.","Click on the pack to cut it open.","Haz clic en el paquete para cortarlo y abrirlo."
+TUT_GAME_CARD_TITLE,Pegue as cartas,Collect the cards,Toma las cartas
+TUT_GAME_CARD_TEXT,"Clique na carta para virá-la e clique de novo para adicioná-la à bancada. Repita para todas as cartas do pacote.","Click a card to flip it, then click again to add it to your workbench. Repeat for every card in the pack.","Haz clic en la carta para voltearla y vuelve a hacer clic para agregarla a la mesa de trabajo. Repite con todas las cartas del paquete."

@@ -125,6 +125,7 @@ offset_left = 31.0
 offset_top = 30.0
 offset_right = 100.0
 offset_bottom = 60.0
+text = "RETURN"
 
 [connection signal="pressed" from="StartDay" to="." method="_on_start_day_pressed"]
 [connection signal="input_event" from="Itens/SpaceMenu" to="Itens/SpaceMenu" method="_on_input_event"]

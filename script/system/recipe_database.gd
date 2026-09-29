@@ -12,6 +12,7 @@ func _ready() -> void:
 func load_recipe() -> void:
 	recipes.clear()
 	_scan_directory(RECIPE_PATH)
+	print("Receitas carregadas: ", recipes.size())
 
 func _scan_directory(path: String) -> void:
 	var dir := DirAccess.open(path)
@@ -29,12 +30,14 @@ func _scan_directory(path: String) -> void:
 			file_name = dir.get_next()
 			continue
 
-		var full_path := path.path_join(file_name)
+		var is_dir := dir.current_is_dir()
+		var clean_name := file_name.trim_suffix(".remap")
+		var full_path := path.path_join(clean_name)
 
-		if dir.current_is_dir():
+		if is_dir:
 			_scan_directory(full_path)
 
-		elif file_name.ends_with(".tres"):
+		elif clean_name.ends_with(".tres") or clean_name.ends_with(".res"):
 			var recipe = load(full_path)
 
 			if recipe is RecipeData:
