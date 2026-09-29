@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://hr1qohj8by1d"]
+
+[ext_resource type="Texture2D" uid="uid://cuuv3t45br8cr" path="res://assets/cards/recipe_card_back.png" id="1_3wgke"]
+[ext_resource type="Texture2D" uid="uid://dtamoc0j4bce4" path="res://assets/cards/ingredient_chocolate_card.png" id="2_5bfc4"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_07d8u"]
+
+[resource]
+script = ExtResource("3_07d8u")
+id = "chocolate"
+title = "Chocolate"
+front = ExtResource("2_5bfc4")
+back = ExtResource("1_3wgke")
+rarity = "rare"

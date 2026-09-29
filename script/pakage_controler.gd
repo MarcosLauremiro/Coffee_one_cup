@@ -17,7 +17,7 @@ signal clicked(card_type: RarityType)
 func _ready() -> void:
 	original_package_x = pakage.position.x
 	original_price_x = price.position.x
-	price.text = price_package
+	price.text = "$" + " " + price_package
 	price.hide()
 
 
@@ -40,7 +40,6 @@ func _on_area_2d_mouse_entered() -> void:
 		original_price_x - 40,
 		0.15
 	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-
 
 func _on_area_2d_mouse_exited() -> void:
 	pakage.material.set_shader_parameter("outline_enabled", false)
@@ -65,4 +64,5 @@ func _on_area_2d_mouse_exited() -> void:
 func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			print("PACOTE CLICADO: ", type)
 			clicked.emit(type)

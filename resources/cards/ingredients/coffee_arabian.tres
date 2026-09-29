@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://idr2tb5jsy0d"]
+
+[ext_resource type="Texture2D" uid="uid://cuuv3t45br8cr" path="res://assets/cards/recipe_card_back.png" id="1_cjhd6"]
+[ext_resource type="Texture2D" uid="uid://olpe7mivgr4v" path="res://assets/cards/arabia_coffee.png" id="2_67b4u"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_kxm7r"]
+
+[resource]
+script = ExtResource("3_kxm7r")
+id = "arabian_coffee"
+title = "Coffee Arabian"
+front = ExtResource("2_67b4u")
+back = ExtResource("1_cjhd6")
+rarity = "epic"

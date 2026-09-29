@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dp54ay3oo66v7"]
+
+[ext_resource type="Texture2D" uid="uid://cuuv3t45br8cr" path="res://assets/cards/recipe_card_back.png" id="1_t5fxk"]
+[ext_resource type="Texture2D" uid="uid://b78cy48sbdejs" path="res://assets/cards/ingredient_honey_card.png" id="2_iqsse"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_4al68"]
+
+[resource]
+script = ExtResource("3_4al68")
+id = "honey"
+title = "Honey"
+front = ExtResource("2_iqsse")
+back = ExtResource("1_t5fxk")
+rarity = "rare"

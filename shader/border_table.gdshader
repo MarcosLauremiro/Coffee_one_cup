@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
-uniform bool outline_enabled = false;
 uniform vec4 outline_color : source_color = vec4(1.0);
-uniform float outline_size = .0;
+uniform float outline_size = 1.0;
+uniform bool outline_enabled = true;
 
 void fragment() {
     vec4 tex = texture(TEXTURE, UV);

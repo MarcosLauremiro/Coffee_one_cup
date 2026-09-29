@@ -14,8 +14,10 @@ func setup(day_one: bool) -> void:
 		return
 
 func _on_start_day_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/game.tscn")
+	if not MenuData.on_has_recipe():
+		return
 
+	get_tree().change_scene_to_file("res://scene/game.tscn")
 
 func _on_go_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/menu.tscn")

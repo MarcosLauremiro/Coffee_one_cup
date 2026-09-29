@@ -25,6 +25,7 @@ CardDatabase="*uid://codhorw7chhl0"
 SaveManager="*uid://c14qyws3ylmf8"
 RecipeDatabase="*uid://dxedg63bgchyj"
 MenuData="*uid://df5k2q0kte245"
+NotificationManager="*uid://dwt24bc3wnfy3"
 
 [display]
 

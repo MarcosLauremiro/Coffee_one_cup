@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cbf8m3dbf7dga"]
+
+[ext_resource type="Script" uid="uid://p8daqed13ngi" path="res://scene/order.gd" id="1_rdtvy"]
+[ext_resource type="Texture2D" uid="uid://vlnks4o72fqc" path="res://assets/ui/game/order_background.png" id="2_fuklt"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="3_shx54"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpk70"]
+texture = ExtResource("2_fuklt")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="Order" type="Control" unique_id=1357205060]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rdtvy")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1012131156]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qpk70")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1436538840]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=827093563]
+custom_minimum_size = Vector2(200, 30)
+custom_maximum_size = Vector2(200, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1146671367]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27058825, 0.15686275, 0.23529412, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_shx54")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=473529610]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7888844, 0.9244846, 0.9054297, 1)
+theme_override_fonts/font = ExtResource("3_shx54")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1424305823]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1981106245]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 205.0
+offset_bottom = 48.0
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

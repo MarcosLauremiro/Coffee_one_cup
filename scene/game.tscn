@@ -8,35 +8,35 @@
 [ext_resource type="Texture2D" uid="uid://dubx5m1w320p7" path="res://assets/ui/game/table.png" id="7_17rxn"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_ll5lq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sng2h"]
-resource_local_to_scene = true
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5g16k"]
-resource_local_to_scene = true
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_81276"]
-resource_local_to_scene = true
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ym5sv"]
-shader = ExtResource("7_ll5lq")
-shader_parameter/outline_enabled = false
-shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_size = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(199.5, 86)
+size = Vector2(200, 86)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq8tf"]
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qpk70"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll5lq"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_17rxn"]
+resource_local_to_scene = true
+shader = ExtResource("7_ll5lq")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
 
 [node name="Game" type="Node2D" unique_id=1793179067]
 script = ExtResource("1_33cqm")
@@ -50,18 +50,6 @@ texture = ExtResource("2_xwcet")
 
 [node name="Customers" type="Node2D" parent="." unique_id=491406571]
 
-[node name="TableCards" parent="." unique_id=160747537 instance=ExtResource("5_qpk70")]
-visible = false
-
-[node name="Pakage" parent="TableCards/PakageControlerComum" parent_id_path=PackedInt32Array(160747537, 279074657) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_sng2h")
-
-[node name="Pakage" parent="TableCards/PakageControlerRare" parent_id_path=PackedInt32Array(160747537, 261471021) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_5g16k")
-
-[node name="Pakage" parent="TableCards/PakageControlerEpic" parent_id_path=PackedInt32Array(160747537, 1188032821) index="0" unique_id=778897342]
-material = SubResource("ShaderMaterial_81276")
-
 [node name="Hud" parent="." unique_id=1821041077 instance=ExtResource("6_ll5lq")]
 visible = false
 
@@ -72,20 +60,34 @@ texture = ExtResource("4_p1ry8")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=264991345]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1296249290]
+position = Vector2(320, 235)
+shape = SubResource("RectangleShape2D_g4v7s")
+
 [node name="Table" type="Sprite2D" parent="Area2D" unique_id=2011848125]
-material = SubResource("ShaderMaterial_ym5sv")
+material = SubResource("ShaderMaterial_yq8tf")
 position = Vector2(320, 235)
 scale = Vector2(2, 2)
 texture = ExtResource("7_17rxn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1296249290]
-position = Vector2(320.25, 235)
-shape = SubResource("RectangleShape2D_g4v7s")
+[node name="Orders" type="Node2D" parent="." unique_id=518286103]
 
-[connection signal="pressed" from="TableCards/Return" to="." method="_on_return_pressed"]
+[node name="TableCards" parent="." unique_id=160747537 instance=ExtResource("5_qpk70")]
+visible = false
+
+[node name="Pakage" parent="TableCards/PakageControlerComum" parent_id_path=PackedInt32Array(160747537, 279074657) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_qpk70")
+
+[node name="Pakage" parent="TableCards/PakageControlerRare" parent_id_path=PackedInt32Array(160747537, 261471021) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_ll5lq")
+
+[node name="Pakage" parent="TableCards/PakageControlerEpic" parent_id_path=PackedInt32Array(160747537, 1188032821) index="0" unique_id=778897342]
+material = SubResource("ShaderMaterial_17rxn")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="TableCards/Return" to="." method="_on_return_pressed"]
 
 [editable path="TableCards"]
 [editable path="TableCards/PakageControlerComum"]

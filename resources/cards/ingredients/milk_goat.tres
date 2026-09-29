@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://pujtn4n7m4a"]
+
+[ext_resource type="Texture2D" uid="uid://cuuv3t45br8cr" path="res://assets/cards/recipe_card_back.png" id="1_wrs36"]
+[ext_resource type="Texture2D" uid="uid://dj1c0oesru2u5" path="res://assets/cards/milk_goat.png" id="2_3jyhf"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_m6cc4"]
+
+[resource]
+script = ExtResource("3_m6cc4")
+id = "milk_goat"
+title = "Milk Goat"
+front = ExtResource("2_3jyhf")
+back = ExtResource("1_wrs36")
+rarity = "epic"

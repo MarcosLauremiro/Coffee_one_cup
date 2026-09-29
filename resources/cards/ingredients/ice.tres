@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://4rf8bocld802"]
+
+[ext_resource type="Texture2D" uid="uid://cuuv3t45br8cr" path="res://assets/cards/recipe_card_back.png" id="1_viy1s"]
+[ext_resource type="Texture2D" uid="uid://c6wjcnf1hjm3m" path="res://assets/cards/ingredient_ice_card.png" id="2_wo3un"]
+[ext_resource type="Script" uid="uid://fes40lgw5mi0" path="res://resources/cards/card_data.gd" id="3_jiiip"]
+
+[resource]
+script = ExtResource("3_jiiip")
+id = "ice"
+title = "Ice"
+front = ExtResource("2_wo3un")
+back = ExtResource("1_viy1s")

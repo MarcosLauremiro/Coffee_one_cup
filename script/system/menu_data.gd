@@ -23,7 +23,6 @@ func set_recipe(slot: int, recipe: RecipeData) -> void:
 	recipes[slot] = recipe
 	menu_changed.emit()
 
-
 func remove_recipe(slot: int) -> void:
 	if slot < 0 or slot >= MAX_SLOTS:
 		return
@@ -31,9 +30,30 @@ func remove_recipe(slot: int) -> void:
 	recipes[slot] = null
 	menu_changed.emit()
 
-
 func get_recipe(slot: int) -> RecipeData:
 	if slot < 0 or slot >= MAX_SLOTS:
 		return null
 
 	return recipes[slot]
+	
+func has_recipe(recipe: RecipeData) -> bool:
+	for r in recipes:
+		if r != null and r.id == recipe.id:
+			return true
+	return false
+
+func get_available_recipes() -> Array[RecipeData]:
+	var available: Array[RecipeData] = []
+
+	for recipe in recipes:
+		if recipe != null:
+			available.append(recipe)
+
+	return available
+
+func on_has_recipe() -> bool:
+	for recipe in recipes:
+		if recipe != null:
+			return true
+
+	return false

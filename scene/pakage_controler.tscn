@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://dc1pmucad0vrx" path="res://script/pakage_controler.gd" id="1_kfax6"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="2_g73pv"]
 [ext_resource type="Texture2D" uid="uid://qej64wf6t8da" path="res://assets/pakage_comum.png" id="3_g73pv"]
+[ext_resource type="FontFile" uid="uid://cj6cqa0av3ptf" path="res://assets/fontes/upheavtt.ttf" id="4_e0l0w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aifke"]
 resource_local_to_scene = true
 shader = ExtResource("2_g73pv")
-shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(104, 64)
@@ -39,6 +40,7 @@ offset_right = -11.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_e0l0w")
 horizontal_alignment = 1
 vertical_alignment = 1
 

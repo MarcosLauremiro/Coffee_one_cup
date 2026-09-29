@@ -1,25 +1,31 @@
+class_name TableCards
 extends Node2D
 
-@onready var pakage_controler_comum: Node2D = $PakageControlerComum
-@onready var pakage_controler_rare: Node2D = $PakageControlerRare
-@onready var pakage_controler_epic: Node2D = $PakageControlerEpic
-@onready var open_package: Node2D = $OpenPackage
+@onready var open_package: OpenPackage = $OpenPackage
+@onready var cards: Node2D = $Cards
 
-func _ready():
-	pakage_controler_comum.clicked.connect(_on_package_clicked)
-	pakage_controler_rare.clicked.connect(_on_package_clicked)
-	pakage_controler_epic.clicked.connect(_on_package_clicked)
-	
-func _on_package_clicked(card_type: Package.RarityType) -> void:
-	match card_type:
-		pakage_controler_comum.RarityType.COMUM:
-			open_package.setup(card_type)
+const CARD_SCENE = preload("res://scene/card.tscn")
 
-		pakage_controler_rare.RarityType.RARE:
-			open_package.setup(card_type)
+func _ready() -> void:
+	get_viewport().physics_object_picking_sort = true
+	get_viewport().physics_object_picking_first_only = true
 
-		pakage_controler_epic.RarityType.EPIC:
-			open_package.setup(card_type)
+func add_collected_card(card_data: CardData) -> void:
+	var card: Card = CARD_SCENE.instantiate()
+	var index := cards.get_child_count()
+	card.position = Vector2(index * 0, index * -16)
+	card.draggable = true
+	card.clicked.connect(_on_card_clicked)
+	cards.add_child(card)
+	card.setup(card_data)
+	card.show_front()
 
-func _on_return_pressed() -> void:
-	hide()
+func _on_card_clicked(card: Card) -> void:
+	card.flip()
+
+
+func get_top_card() -> Card:
+	if cards.get_child_count() == 0:
+		return null
+
+	return cards.get_child(cards.get_child_count() - 1) as Card

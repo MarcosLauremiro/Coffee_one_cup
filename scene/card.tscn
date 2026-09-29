@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cujtrgx4ekfu" path="res://assets/cards/event_card_back.png" id="2_gw1lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(72, 96)
+size = Vector2(53.75, 71.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(54, 72)
 
 [node name="Card" type="Node2D" unique_id=1437305824]
 script = ExtResource("1_7p64d")
@@ -12,17 +15,25 @@ script = ExtResource("1_7p64d")
 [node name="Front" type="Node2D" parent="." unique_id=655488292]
 
 [node name="Front" type="Sprite2D" parent="Front" unique_id=921518916]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_gw1lc")
 
 [node name="Back" type="Node2D" parent="." unique_id=1085151767]
 
 [node name="Back" type="Sprite2D" parent="Back" unique_id=567377391]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1832428719]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1996633726]
 shape = SubResource("RectangleShape2D_yf5fn")
 
+[node name="Magnet" type="Area2D" parent="." unique_id=439344953]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet" unique_id=1157119431]
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.72353256, 0.24575391, 0.99999994, 0.41960785)
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
+[connection signal="area_exited" from="Magnet" to="." method="_on_magnet_area_exited"]

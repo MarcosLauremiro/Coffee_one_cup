@@ -8,30 +8,29 @@
 [ext_resource type="Texture2D" uid="uid://bs1yg1tmmjnue" path="res://assets/pakage_rare.png" id="7_aifke"]
 [ext_resource type="Shader" uid="uid://gtyme1dyjf77" path="res://shader/border_table.gdshader" id="7_x8bil"]
 [ext_resource type="Script" uid="uid://dn3v2vl4ax3lh" path="res://script/open_package.gd" id="9_aifke"]
-[ext_resource type="Script" uid="uid://bq7s02kporep1" path="res://script/package_open_animation.gd" id="10_gr4ay"]
 [ext_resource type="Texture2D" uid="uid://c0jd3yyr1abat" path="res://assets/package_comum_pening_Sheet.png" id="10_iysma"]
 [ext_resource type="Texture2D" uid="uid://dyvkwkurmd1jv" path="res://assets/package_rare_pening_Sheet.png" id="11_gr4ay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gr4ay"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
-shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nbk3f"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
-shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nuyk"]
 resource_local_to_scene = true
 shader = ExtResource("7_x8bil")
-shader_parameter/outline_enabled = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_size = 1.0
+shader_parameter/outline_enabled = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gr4ay"]
 atlas = ExtResource("10_iysma")
@@ -94,7 +93,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 15.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36s0m"]
@@ -156,9 +155,17 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_uhva6")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"default",
-"speed": 5.0
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [],
+"loop": 0,
+"name": &"default",
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
@@ -174,11 +181,15 @@ scale = Vector2(2.0055556, 2.0055556)
 texture = ExtResource("1_i15db")
 
 [node name="Return" parent="." unique_id=1570703520 instance=ExtResource("3_h7obs")]
-offset_left = 19.0
-offset_top = 37.0
-offset_right = 88.0
-offset_bottom = 68.0
+offset_left = 13.0
+offset_top = 21.0
+offset_right = 82.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 12
 text = "Voltar"
+
+[node name="Cards" type="Node2D" parent="." unique_id=1407114066]
+position = Vector2(146, 91)
 
 [node name="PakageControlerComum" parent="." unique_id=279074657 instance=ExtResource("5_i27hv")]
 position = Vector2(670, 54)
@@ -216,8 +227,6 @@ mouse_filter = 1
 color = Color(0, 0, 0, 0.717)
 
 [node name="Package" type="Node2D" parent="OpenPackage" unique_id=272407165]
-visible = false
-script = ExtResource("10_gr4ay")
 
 [node name="AnimatedComum" type="AnimatedSprite2D" parent="OpenPackage/Package" unique_id=659137986]
 position = Vector2(315, 173)
@@ -225,7 +234,12 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="AnimatedRare" type="AnimatedSprite2D" parent="OpenPackage/Package" unique_id=906970495]
+position = Vector2(315, 173)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yf5fn")
+
+[node name="AnimatedEpic" type="AnimatedSprite2D" parent="OpenPackage/Package" unique_id=1475324338]
+sprite_frames = SubResource("SpriteFrames_57qmd")
 
 [node name="Area2D" type="Area2D" parent="OpenPackage/Package" unique_id=847074038]
 
@@ -237,10 +251,11 @@ shape = SubResource("RectangleShape2D_g4v7s")
 position = Vector2(315, 185)
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
-[connection signal="input_event" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="OpenPackage/Package/Area2D" to="OpenPackage/Package" method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="OpenPackage/Package/Area2D" to="OpenPackage" method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="OpenPackage/Package/Area2D" to="OpenPackage" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="OpenPackage/Package/Area2D" to="OpenPackage" method="_on_area_2d_mouse_exited"]
 
+[editable path="Return"]
 [editable path="PakageControlerComum"]
 [editable path="PakageControlerRare"]
 [editable path="PakageControlerEpic"]

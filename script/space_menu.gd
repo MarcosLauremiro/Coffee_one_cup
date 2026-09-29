@@ -2,8 +2,10 @@ extends Area2D
 
 @export var slot: int = 0
 
+
 const NORMAL: Texture = preload("res://assets/ui/game/menu/revenue_normal.png")
 const HOVER: Texture = preload("res://assets/ui/game/menu/revenue_hover.png")
+
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var recipe_selector: Control = $"../../Revenues/RecipeSelector"
@@ -11,9 +13,8 @@ const HOVER: Texture = preload("res://assets/ui/game/menu/revenue_hover.png")
 
 
 func _ready() -> void:
-	MenuData.menu_changed.connect(update_recipe)   # <- bug 1
+	MenuData.menu_changed.connect(update_recipe)
 	update_recipe()
-
 
 func update_recipe() -> void:
 	var recipe := MenuData.get_recipe(slot)
@@ -50,5 +51,5 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			recipe_selector.setup(slot)
-		elif event.button_index == MOUSE_BUTTON_RIGHT:   # bônus: botão direito limpa o slot
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
 			MenuData.remove_recipe(slot)

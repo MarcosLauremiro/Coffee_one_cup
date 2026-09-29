@@ -21,13 +21,16 @@ func setup(slot: int) -> void:
 	show()
 
 	var recipes: Array[RecipeData] = RecipeDatabase.get_recipe_unlocked()
+
 	for recipe in recipes:
+		if MenuData.has_recipe(recipe):   # já está no cardápio, pula
+			continue
+
 		var item := RECIPE_ITEM_SCENE.instantiate() as RecipeItem
 		v_box_container.add_child(item)
 		item.setup(recipe, scroll)
 		item.chosen.connect(_on_recipe_chosen)
 
-	# espera o container posicionar os itens e a física processar o clique de abertura
 	await get_tree().process_frame
 	await get_tree().physics_frame
 	await get_tree().physics_frame

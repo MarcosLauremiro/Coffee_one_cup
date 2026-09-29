@@ -5,16 +5,27 @@ signal clicked(card: Card)
 
 @onready var front: Sprite2D = $Front/Front
 @onready var back: Sprite2D = $Back/Back
+@onready var magnet: Area2D = $Magnet
+
+const DRAG_THRESHOLD := 5.0
 
 var data: CardData
+
 var is_front := false
 var is_flipping := false
 var is_removing := false
 
+# Quem cria a carta liga isso (a mesa liga, o pacote não)
+var draggable := false
+
+var is_pressed := false
+var is_dragging := false
+var drag_offset := Vector2.ZERO
+var mouse_down_position := Vector2.ZERO
 
 func _ready() -> void:
-	back.visible = true
-	front.visible = false
+	magnet.input_pickable = false
+	_apply_back()
 
 
 func setup(card_data: CardData) -> void:
@@ -25,78 +36,143 @@ func setup(card_data: CardData) -> void:
 func render() -> void:
 	if data == null:
 		return
-
 	front.texture = data.front
 	back.texture = data.back
+	_apply_back()
 
-	back.visible = true
-	front.visible = false
 
+func show_front() -> void:
+	if is_flipping or is_removing:
+		return
+	_apply_front()
+
+
+func show_back() -> void:
+	if is_flipping or is_removing:
+		return
+	_apply_back()
+
+
+func _apply_front() -> void:
+	is_front = true
+	front.visible = true
+	back.visible = false
+
+
+func _apply_back() -> void:
 	is_front = false
+	front.visible = false
+	back.visible = true
 
 
 func flip() -> void:
 	if is_flipping or is_removing:
 		return
-
 	is_flipping = true
 
 	var tween := create_tween()
-
 	tween.tween_property(self, "scale:x", 0.0, 0.15)
-
 	tween.tween_callback(_change_side)
-
 	tween.tween_property(self, "scale:x", 1.0, 0.15)
-
 	await tween.finished
 
 	is_flipping = false
 
 
 func _change_side() -> void:
-	is_front = !is_front
-
-	front.visible = is_front
-	back.visible = !is_front
+	if is_front:
+		_apply_back()
+	else:
+		_apply_front()
 
 
 func remove_card() -> void:
 	if is_flipping or is_removing:
 		return
-
 	is_removing = true
 
 	var tween := create_tween()
-
-	tween.tween_property(
-		self,
-		"scale",
-		Vector2(1.1, 1.1),
-		0.1
-	)
-
-	tween.parallel().tween_property(
-		self,
-		"modulate:a",
-		0.0,
-		0.2
-	)
-
+	tween.tween_property(self, "scale", Vector2(1.1, 1.1), 0.1)
+	tween.parallel().tween_property(self, "modulate:a", 0.0, 0.2)
 	await tween.finished
 
-	clicked.emit(self)
 
+# --- INPUT ---
 
 func _on_area_2d_input_event(
 	_viewport: Node,
 	event: InputEvent,
 	_shape_idx: int
 ) -> void:
+	if is_flipping or is_removing:
+		return
+	if not (event is InputEventMouseButton):
+		return
+	if event.button_index != MOUSE_BUTTON_LEFT or not event.pressed:
+		return
 
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if is_flipping or is_removing:
+	# Sempre registra o clique (serve pro pacote e pra mesa)
+	is_pressed = true
+	mouse_down_position = get_global_mouse_position()
+	drag_offset = global_position - mouse_down_position
+
+
+func _input(event: InputEvent) -> void:
+	if not is_pressed:
+		return
+
+	# Movimento: só começa a arrastar depois do limiar
+	if event is InputEventMouseMotion:
+		if not can_drag():
+			return
+		var mouse := get_global_mouse_position()
+		if not is_dragging:
+			if mouse_down_position.distance_to(mouse) < DRAG_THRESHOLD:
 				return
+			is_dragging = true
+			move_to_front()
+		global_position = mouse + drag_offset
+		return
 
+	# Soltou o botão
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and not event.pressed:
+		is_pressed = false
+
+		if is_dragging:
+			is_dragging = false
+			var target := get_magnet_target()
+			if target != null:
+				global_position = target.global_position + Vector2(0, -20)
+		else:
+			# Foi só um clique: avisa o dono, ele decide (virar, coletar...)
 			clicked.emit(self)
+
+
+func can_drag() -> bool:
+	return draggable
+
+
+func get_magnet_target() -> Card:
+	var top_card: Card = null
+
+	for area in magnet.get_overlapping_areas():
+		var card := area.get_parent() as Card
+
+		if card == null or card == self:
+			continue
+		if card.is_removing:
+			continue
+
+		if top_card == null or _is_above(card, top_card):
+			top_card = card
+
+	return top_card
+
+
+# true se "a" está visualmente acima de "b"
+func _is_above(a: Card, b: Card) -> bool:
+	if a.z_index != b.z_index:
+		return a.z_index > b.z_index
+	return a.get_index() > b.get_index()
